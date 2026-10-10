@@ -202,8 +202,8 @@ function showPage(moveFocus = false) {
     const breadcrumbPath = document.createElement('span')
     breadcrumbPath.className = 'breadcrumb-path'
     const segments = page === 'shop' ? ['Shop', 'ALL']
-      : product ? ['Shop', (pages[`shop/${product.category}`] ?? product.category).toUpperCase()]
-      : page.startsWith('shop/') ? ['Shop', title.toUpperCase()]
+      : product ? ['Shop', pages[`shop/${product.category}`] ?? product.category]
+      : page.startsWith('shop/') ? ['Shop', title]
       : [title]
     segments.forEach((segment, index) => {
       if (index) breadcrumbPath.append(' / ')
