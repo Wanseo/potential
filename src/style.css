@@ -428,7 +428,8 @@ body {
   vertical-align: -0.12em;
 }
 
-.shop-short-arrow svg {
+.shop-short-arrow svg,
+.product-back svg {
   display: block;
   width: 0.85em;
   height: 0.85em;
