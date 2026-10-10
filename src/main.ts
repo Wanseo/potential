@@ -79,13 +79,19 @@ const content = document.querySelector<HTMLElement>('.page-content')!
 const home = document.querySelector<HTMLElement>('.home-content')!
 const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a')
 const homeShopMenu = document.querySelector<HTMLDetailsElement>('.site-nav .shop-menu')!
+let homeShopPinned = false
+homeShopMenu.querySelector('summary')!.addEventListener('click', (event) => {
+  event.preventDefault()
+  homeShopPinned = !homeShopPinned
+  homeShopMenu.open = homeShopPinned
+})
 homeShopMenu.addEventListener('pointerenter', (event) => {
   if (event.pointerType !== 'touch' && !header.classList.contains('is-content-page')) {
     homeShopMenu.open = true
   }
 })
 homeShopMenu.addEventListener('pointerleave', (event) => {
-  if (event.pointerType !== 'touch') homeShopMenu.open = false
+  if (event.pointerType !== 'touch' && !homeShopPinned) homeShopMenu.open = false
 })
 
 function renderProducts(page: string) {
@@ -137,6 +143,8 @@ function showPage(moveFocus = false) {
   const product = page.startsWith('product/')
     ? products.find((item) => item.id === page.slice('product/'.length)) : undefined
   const title = product?.name ?? (Object.hasOwn(pages, page) ? pages[page] : undefined)
+  homeShopPinned = false
+  homeShopMenu.open = false
   header.classList.toggle('is-content-page', Boolean(title))
   header.classList.toggle('is-shop-page', Boolean(title && (page === 'shop' || page.startsWith('shop/') || product)))
   breadcrumb.hidden = !title
