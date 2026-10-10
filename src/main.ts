@@ -27,15 +27,24 @@ function playIntro() {
   const x = (window.innerWidth - bounds.width * scale) / 2 - bounds.left
   const y = (window.innerHeight - bounds.height * scale) / 2 - bounds.top
   const centered = `translate(${x}px, ${y}px) scale(${scale})`
+  const fadeDuration = 400
+  const holdDuration = 2500
+  const moveDuration = 1200
+  const duration = fadeDuration + holdDuration + moveDuration
 
   animation = brand.animate(
     [
       { transform: centered, opacity: 0, offset: 0 },
-      { transform: centered, opacity: 1, offset: 0.18 },
-      { transform: centered, opacity: 1, offset: 0.44 },
+      { transform: centered, opacity: 1, offset: fadeDuration / duration },
+      {
+        transform: centered,
+        opacity: 1,
+        offset: (fadeDuration + holdDuration) / duration,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
       { transform: 'translate(0, 0) scale(1)', opacity: 1, offset: 1 },
     ],
-    { duration: 2200, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+    { duration, easing: 'linear' },
   )
   animation.onfinish = () => {
     introFinished = true
