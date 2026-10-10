@@ -113,16 +113,29 @@ body {
 }
 
 .site-header:not(.is-content-page) .brand {
-  width: clamp(260px, 42vw, 520px);
+  width: 230px;
 }
 
 .site-header:not(.is-content-page) .site-nav {
-  font-size: clamp(18px, 2.7vw, 36px);
-  gap: clamp(18px, 2.5vw, 32px);
+  font-size: 16px;
+  font-weight: 500;
+  gap: 10px;
+  line-height: 1.5;
 }
 
 .site-header:not(.is-content-page) {
-  gap: 24px;
+  gap: 40px;
+  padding-top: 20px;
+}
+
+@media (max-width: 940px) {
+  .site-header:not(.is-content-page) .brand {
+    width: 100px;
+  }
+
+  .site-header:not(.is-content-page) .site-nav {
+    font-size: 13px;
+  }
 }
 
 .site-nav {
