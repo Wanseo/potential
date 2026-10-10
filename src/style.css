@@ -63,8 +63,7 @@ body {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  gap: clamp(2px, 0.4vw, 5px);
-  width: clamp(240px, 33vw, 390px);
+  width: clamp(160px, 24vw, 290px);
   max-width: 100%;
   color: inherit;
   text-decoration: none;
@@ -75,15 +74,6 @@ body {
 
 .brand.is-ready {
   visibility: visible;
-}
-
-.brand-prefix {
-  flex: none;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(14px, 1.75vw, 21px);
-  font-weight: 500;
-  line-height: 1.2;
-  white-space: nowrap;
 }
 
 .brand-logo {

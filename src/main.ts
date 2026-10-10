@@ -4,8 +4,7 @@ const app = document.querySelector<HTMLDivElement>('#app')!
 
 app.innerHTML = `
   <header class="site-header">
-    <a class="brand" href="${import.meta.env.BASE_URL}" aria-label="you are my Potential 홈">
-      <span class="brand-prefix">you are my</span>
+    <a class="brand" href="${import.meta.env.BASE_URL}" aria-label="Potential 홈">
       <span class="brand-logo">
         <span class="brand-text" aria-hidden="true">POTENTIAL</span>
         <img class="brand-image" alt="POTENTIAL" hidden />
@@ -22,13 +21,11 @@ app.innerHTML = `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
 const header = document.querySelector<HTMLElement>('.site-header')!
-const prefix = document.querySelector<HTMLSpanElement>('.brand-prefix')!
 const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
 const label = document.querySelector<HTMLSpanElement>('.brand-text')!
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 let animation: Animation | undefined
-let prefixAnimation: Animation | undefined
 let introFinished = false
 
 function playIntro() {
@@ -38,7 +35,6 @@ function playIntro() {
   }
 
   animation?.cancel()
-  prefixAnimation?.cancel()
   const bounds = brand.getBoundingClientRect()
   const logoBounds = logoContainer.getBoundingClientRect()
   const scale = Math.max(1, Math.min((window.innerWidth * 0.86) / logoBounds.width, 5))
@@ -51,9 +47,6 @@ function playIntro() {
   const holdDuration = 1500
   const moveDuration = 700
   const duration = fadeDuration + holdDuration + moveDuration
-  const prefixFadeDuration = 300
-  // 문구 공간은 유지하고 투명도만 바꿔 로고 위치가 변하지 않게 합니다.
-  prefix.style.opacity = '0'
 
   animation = brand.animate(
     [
@@ -71,14 +64,9 @@ function playIntro() {
   )
   animation.onfinish = () => {
     introFinished = true
-    // 이동 효과를 제거해 최종 레이아웃에 고정한 뒤 문구만 표시합니다.
+    // 이동 효과를 제거해 최종 레이아웃에 고정합니다.
     animation?.cancel()
     header.classList.add('is-settled')
-    prefix.style.opacity = '1'
-    prefixAnimation = prefix.animate(
-      [{ opacity: 0 }, { opacity: 1 }],
-      { duration: prefixFadeDuration, easing: 'ease-in-out' },
-    )
   }
 }
 
@@ -99,16 +87,12 @@ logo.src = `${import.meta.env.BASE_URL}potential-logo.png`
 
 window.addEventListener('resize', () => {
   animation?.cancel()
-  prefixAnimation?.cancel()
-  prefix.style.opacity = '1'
   introFinished = true
   header.classList.add('is-settled')
 })
 reducedMotion.addEventListener('change', () => {
   if (reducedMotion.matches) {
     animation?.cancel()
-    prefixAnimation?.cancel()
-    prefix.style.opacity = '1'
     introFinished = true
     header.classList.add('is-settled')
   }
