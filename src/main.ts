@@ -1,5 +1,6 @@
 import './style.css'
 import { products, selectProducts } from './products.ts'
+import { renderProductDetail } from './product-detail.ts'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
@@ -81,6 +82,9 @@ function renderProducts(page: string) {
   visibleProducts.forEach((product) => {
     const card = document.createElement('li')
     card.className = 'product-card'
+    const link = document.createElement('a')
+    link.className = 'product-link'
+    link.href = `#product/${product.id}`
     const image = document.createElement('img')
     image.src = `${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, '')}`
     image.alt = product.name
@@ -88,15 +92,16 @@ function renderProducts(page: string) {
     const name = document.createElement('p')
     name.className = 'product-name'
     name.textContent = product.name
-    card.append(image, name)
+    link.append(image, name)
     if (product.price !== undefined) {
       const price = document.createElement('p')
       price.className = 'product-price'
       price.textContent = new Intl.NumberFormat('ko-KR', {
         style: 'currency', currency: 'KRW', maximumFractionDigits: 0,
       }).format(product.price)
-      card.append(price)
+      link.append(price)
     }
+    card.append(link)
     grid.append(card)
   })
   content.append(grid)
@@ -104,16 +109,19 @@ function renderProducts(page: string) {
 
 function showPage(moveFocus = false) {
   const page = window.location.hash.slice(1)
-  const title = Object.hasOwn(pages, page) ? pages[page] : undefined
+  const product = page.startsWith('product/')
+    ? products.find((item) => item.id === page.slice('product/'.length)) : undefined
+  const title = product?.name ?? (Object.hasOwn(pages, page) ? pages[page] : undefined)
   header.classList.toggle('has-page', Boolean(title))
   content.hidden = !title
   home.hidden = Boolean(title)
   renderProducts(title ? page : '')
+  if (product) renderProductDetail(content, product)
   if (title) content.setAttribute('aria-label', title)
   else content.removeAttribute('aria-label')
   document.title = title ? `${title} | POTENTIAL` : 'POTENTIAL'
   menuLinks.forEach((link) => {
-    if (title && link.hash === `#${page}`) {
+    if (title && (link.hash === `#${page}` || (product && link.hash === '#shop'))) {
       link.setAttribute('aria-current', 'page')
     } else {
       link.removeAttribute('aria-current')
