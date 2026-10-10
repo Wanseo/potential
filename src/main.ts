@@ -102,7 +102,11 @@ homeShopMenu.addEventListener('pointerleave', (event) => {
   if (event.pointerType !== 'touch' && !homeShopPinned) homeShopMenu.open = false
 })
 document.querySelector('.site-nav')!.addEventListener('click', (event) => {
-  if (event.target instanceof Node && !homeShopMenu.contains(event.target)) {
+  if (!(event.target instanceof Node)) return
+  document.querySelectorAll<HTMLDetailsElement>('.site-nav > details').forEach((dropdown) => {
+    if (!dropdown.contains(event.target as Node)) dropdown.open = false
+  })
+  if (!homeShopMenu.contains(event.target)) {
     homeShopPinned = false
     homeShopMenu.open = false
   }
