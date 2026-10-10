@@ -41,7 +41,7 @@ function playIntro() {
   const holdDuration = 2000
   const moveDuration = 1200
   const duration = fadeDuration + holdDuration + moveDuration
-  const prefixFadeDuration = 800
+  const prefixFadeDuration = 500
   const prefixDuration = duration + prefixFadeDuration
 
   prefixAnimation = prefix.animate(
