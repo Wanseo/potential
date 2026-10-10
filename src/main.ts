@@ -115,6 +115,15 @@ document.querySelector('.site-nav')!.addEventListener('click', (event) => {
     homeShopMenu.open = false
   }
 })
+document.addEventListener('click', (event) => {
+  if (!(event.target instanceof Node)) return
+  document.querySelectorAll<HTMLDetailsElement>('.site-nav > details').forEach((dropdown) => {
+    if (!dropdown.contains(event.target as Node)) {
+      dropdown.open = false
+      if (dropdown === homeShopMenu) homeShopPinned = false
+    }
+  })
+})
 
 function renderProducts(page: string) {
   content.replaceChildren()
