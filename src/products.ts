@@ -25,6 +25,14 @@ export const products: Product[] = [
     price: 6000,
     color: 'Mint / Black',
   },
+  {
+    id: 'sticker-02',
+    name: 'POTENTIAL sticker 02',
+    category: 'laptop-stickers',
+    image: 'products/sticker-02-white.png',
+    price: 6000,
+    color: 'Mint / Black',
+  },
 ]
 
 export function selectProducts(catalog: readonly Product[], category?: string): Product[] {
