@@ -42,7 +42,7 @@ app.innerHTML = `
   </header>
   <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
-    <img class="home-image" src="${import.meta.env.BASE_URL}main-image-02.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" />
+    <img class="home-image" src="${import.meta.env.BASE_URL}main-image-02-display.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" />
   </main>
   <main class="page-content" tabindex="-1" hidden></main>
   <footer class="site-footer">
