@@ -170,10 +170,8 @@ function showPage(moveFocus = false) {
       menu.open = false
       window.location.hash = 'shop'
     })
-    const categoryToggle = document.createElement('span')
-    categoryToggle.textContent = ' ▾'
     shopToggle.setAttribute('aria-label', 'Shop 상품 분류 펼치기')
-    shopToggle.append(shopLink, categoryToggle)
+    shopToggle.append(shopLink)
     const categories = document.createElement('nav')
     categories.className = 'breadcrumb-categories'
     categories.setAttribute('aria-label', 'Shop 상품 분류')
