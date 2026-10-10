@@ -43,7 +43,7 @@ app.innerHTML = `
           <path d="m27 27 10 10" />
         </svg>
       </span>
-      <span class="login-label">Log In</span>
+      <span class="login-label">LogIn</span>
       <span class="cart-label">Cart</span>
     </div>
     </div>
