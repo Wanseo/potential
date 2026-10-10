@@ -22,6 +22,7 @@ export function renderProductDetail(container: HTMLElement, product: Product) {
       </div>
     </article>
   `
+  container.querySelector<HTMLElement>('.product-detail')!.dataset.productId = product.id
   const image = container.querySelector<HTMLImageElement>('.detail-gallery img')!
   image.src = `${import.meta.env.BASE_URL}${product.image}`
   image.alt = product.name

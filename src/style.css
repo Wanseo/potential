@@ -391,6 +391,11 @@ body {
   object-fit: contain;
 }
 
+.product-detail[data-product-id='sticker-02'] .detail-gallery img {
+  width: 80%;
+  max-height: 52svh;
+}
+
 .detail-info {
   align-self: center;
   max-width: 480px;
