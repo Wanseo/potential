@@ -19,7 +19,7 @@ body {
 }
 
 .site-header {
-  padding: clamp(20px, 4vw, 48px);
+  padding: clamp(12px, 2vw, 24px) clamp(20px, 4vw, 48px);
 }
 
 .brand {
