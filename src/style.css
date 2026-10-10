@@ -113,13 +113,13 @@ body {
 }
 
 .site-header:not(.is-content-page) .brand {
-  width: 345px;
+  width: 293.25px;
 }
 
 .site-header:not(.is-content-page) .site-nav {
-  font-size: 24px;
+  font-size: 20.4px;
   font-weight: 500;
-  gap: 15px;
+  gap: 12.75px;
   line-height: 1.5;
 }
 
@@ -130,11 +130,11 @@ body {
 
 @media (max-width: 940px) {
   .site-header:not(.is-content-page) .brand {
-    width: 150px;
+    width: 127.5px;
   }
 
   .site-header:not(.is-content-page) .site-nav {
-    font-size: 19.5px;
+    font-size: 16.575px;
   }
 }
 
