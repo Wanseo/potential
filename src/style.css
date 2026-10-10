@@ -113,11 +113,16 @@ body {
 }
 
 .site-header:not(.is-content-page) .brand {
-  width: clamp(250px, 38vw, 470px);
+  width: clamp(260px, 42vw, 520px);
 }
 
 .site-header:not(.is-content-page) .site-nav {
-  font-size: clamp(16px, 1.9vw, 24px);
+  font-size: clamp(18px, 2.7vw, 36px);
+  gap: clamp(18px, 2.5vw, 32px);
+}
+
+.site-header:not(.is-content-page) {
+  gap: 24px;
 }
 
 .site-nav {
