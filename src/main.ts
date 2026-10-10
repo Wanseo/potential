@@ -128,6 +128,7 @@ function showPage(moveFocus = false) {
   const product = page.startsWith('product/')
     ? products.find((item) => item.id === page.slice('product/'.length)) : undefined
   const title = product?.name ?? (Object.hasOwn(pages, page) ? pages[page] : undefined)
+  header.classList.toggle('is-shop-page', Boolean(title && (page === 'shop' || page.startsWith('shop/') || product)))
   breadcrumb.hidden = !title
   breadcrumb.replaceChildren()
   if (title) {

@@ -122,7 +122,7 @@ body {
 }
 
 .site-header.is-settled .site-nav,
-.site-header.is-settled .header-actions,
+.site-header.is-settled.is-shop-page .header-actions,
 .site-header.is-settled ~ .home-content,
 .site-header.is-settled ~ .site-footer,
 .site-header.is-settled ~ .rotating-logo {
@@ -130,12 +130,30 @@ body {
 }
 
 .header-actions {
-  display: flex;
+  display: none;
+  position: absolute;
+  top: clamp(12px, 2vw, 24px);
+  right: clamp(20px, 4vw, 48px);
   align-items: center;
   gap: var(--menu-gap);
   font-size: var(--menu-font-size);
   margin-left: 0;
   visibility: hidden;
+}
+
+.site-header.is-shop-page .header-actions {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .site-header.is-shop-page {
+    padding-top: 60px;
+  }
+
+  .header-actions {
+    font-size: 16px;
+    gap: 16px;
+  }
 }
 
 .search-icon {
