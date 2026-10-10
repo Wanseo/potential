@@ -78,6 +78,15 @@ const pages: Record<string, string> = {
 const content = document.querySelector<HTMLElement>('.page-content')!
 const home = document.querySelector<HTMLElement>('.home-content')!
 const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a')
+const homeShopMenu = document.querySelector<HTMLDetailsElement>('.site-nav .shop-menu')!
+homeShopMenu.addEventListener('pointerenter', (event) => {
+  if (event.pointerType !== 'touch' && !header.classList.contains('is-content-page')) {
+    homeShopMenu.open = true
+  }
+})
+homeShopMenu.addEventListener('pointerleave', (event) => {
+  if (event.pointerType !== 'touch') homeShopMenu.open = false
+})
 
 function renderProducts(page: string) {
   content.replaceChildren()
