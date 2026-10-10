@@ -142,16 +142,28 @@ body {
 
 .header-actions {
   display: none;
+  position: absolute;
+  right: clamp(20px, 4vw, 48px);
+  top: calc(clamp(12px, 2vw, 24px) + clamp(40px, 6vw, 73.333px));
+  transform: translateY(-50%);
   align-items: center;
   gap: var(--menu-gap);
-  font-size: inherit;
+  font-size: clamp(16px, 1.6vw, 22px);
   margin-left: auto;
   visibility: hidden;
 }
 
-.page-breadcrumb .header-actions {
+.site-header.is-settled.is-shop-page .header-actions {
   display: flex;
   visibility: visible;
+}
+
+@media (max-width: 640px) {
+  .header-actions {
+    position: static;
+    transform: none;
+    align-self: flex-end;
+  }
 }
 
 @media (max-width: 900px) {

@@ -220,9 +220,9 @@ function showPage(moveFocus = false) {
       }
     })
     breadcrumb.append(breadcrumbPath)
-    if (header.classList.contains('is-shop-page')) breadcrumb.append(headerActions)
   }
   content.hidden = !title
+  header.append(headerActions)
   home.hidden = Boolean(title)
   renderProducts(title ? page : '')
   if (product) renderProductDetail(content, product)
