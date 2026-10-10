@@ -109,10 +109,39 @@ body {
 }
 
 .site-header.is-settled .site-nav,
+.site-header.is-settled .header-actions,
 .site-header.is-settled ~ .home-content,
 .site-header.is-settled ~ .site-footer,
 .site-header.is-settled ~ .rotating-logo {
   visibility: visible;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+  margin-left: auto;
+  visibility: hidden;
+}
+
+.search-icon {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+
+.search-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.login-label {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(16px, 2vw, 25px);
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .home-content {

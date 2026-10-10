@@ -29,6 +29,15 @@ app.innerHTML = `
       <a href="#archive">Archive</a>
       <a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
+    <div class="header-actions">
+      <span class="search-icon" role="img" aria-label="검색">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="17" cy="17" r="13" />
+          <path d="m27 27 10 10" />
+        </svg>
+      </span>
+      <span class="login-label">LOG IN</span>
+    </div>
   </header>
   <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
