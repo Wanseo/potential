@@ -226,6 +226,7 @@ body {
 
 .home-image {
   display: block;
+  transform: translateY(-32px);
   width: min(578px, 68vw, 76.5svh);
   max-width: 100%;
   height: auto;
