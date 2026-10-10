@@ -25,6 +25,7 @@ body {
 }
 
 .site-footer {
+  visibility: hidden;
   margin-top: auto;
   padding: 24px clamp(20px, 4vw, 48px);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -51,7 +52,8 @@ body {
   line-height: 1.2;
 }
 
-.site-header.is-settled .site-nav {
+.site-header.is-settled .site-nav,
+.site-header.is-settled ~ .site-footer {
   visibility: visible;
 }
 
