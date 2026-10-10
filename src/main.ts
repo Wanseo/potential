@@ -55,7 +55,7 @@ app.innerHTML = `
     I hope the things I make bring you joy.</p>
   <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
-    <img class="home-image" src="${import.meta.env.BASE_URL}main-image-03.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" />
+    <div class="home-box-outline"><img class="home-image" src="${import.meta.env.BASE_URL}main-image-03.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" /></div>
   </main>
   <main class="page-content" tabindex="-1" hidden></main>
   <footer class="site-footer">
