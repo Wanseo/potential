@@ -85,7 +85,7 @@ function playIntro() {
   const centered = `translate(${x}px, ${y}px) scale(${scale})`
   const fadeDuration = 400
   const holdDuration = 1500
-  const moveDuration = 700
+  const moveDuration = 400
   const duration = fadeDuration + holdDuration + moveDuration
 
   animation = brand.animate(
