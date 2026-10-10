@@ -23,7 +23,7 @@ export const products: Product[] = [
     category: 'laptop-stickers',
     image: 'products/sticker-01-grain.png',
     price: 6000,
-    color: 'Mint / Black',
+    color: 'Mint / Blue / Pink',
   },
   {
     id: 'sticker-02',
