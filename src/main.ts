@@ -41,15 +41,16 @@ function playIntro() {
   const holdDuration = 2000
   const moveDuration = 1200
   const duration = fadeDuration + holdDuration + moveDuration
+  const prefixFadeDuration = 800
+  const prefixDuration = duration + prefixFadeDuration
 
   prefixAnimation = prefix.animate(
     [
       { opacity: 0, offset: 0 },
-      { opacity: 0, offset: (fadeDuration + holdDuration) / duration },
-      { opacity: 1, offset: (fadeDuration + holdDuration + 400) / duration },
+      { opacity: 0, offset: duration / prefixDuration, easing: 'ease-in-out' },
       { opacity: 1, offset: 1 },
     ],
-    { duration, easing: 'linear' },
+    { duration: prefixDuration, easing: 'linear' },
   )
 
   animation = brand.animate(
