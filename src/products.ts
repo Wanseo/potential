@@ -19,7 +19,7 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 'sticker-01',
-    name: 'POTENTIAL sticker (Horizontal)',
+    name: 'POTENTIAL sticker',
     category: 'laptop-stickers',
     image: 'products/sticker-01-grain.png',
     price: 6000,
