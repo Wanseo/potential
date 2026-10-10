@@ -243,7 +243,7 @@ body {
 }
 
 .page-breadcrumb {
-  padding: 16px clamp(20px, 4vw, 48px) 0;
+  padding: 40px clamp(20px, 4vw, 48px) 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: clamp(16px, 1.6vw, 22px);
   font-weight: 400;
