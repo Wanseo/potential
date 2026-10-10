@@ -526,6 +526,13 @@ body {
   color: #6b6b6b;
 }
 
+.product-status {
+  margin-left: 12px;
+  font-size: 0.75em;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
 .brand {
   visibility: hidden;
   display: flex;

@@ -30,6 +30,12 @@ export function renderProductDetail(container: HTMLElement, product: Product) {
   container.querySelector('.detail-color')!.textContent = product.color ?? '—'
   container.querySelector('.detail-price')!.textContent = product.price === undefined ? ''
     : new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW', maximumFractionDigits: 0 }).format(product.price)
+  if (product.price !== undefined && product.category === 'laptop-stickers') {
+    const status = document.createElement('span')
+    status.className = 'product-status'
+    status.textContent = '준비 중'
+    container.querySelector('.detail-price')!.append(status)
+  }
 
   const quantity = container.querySelector<HTMLInputElement>('.quantity-control input')!
   const minus = container.querySelector<HTMLButtonElement>('.quantity-minus')!

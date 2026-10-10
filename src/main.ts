@@ -148,6 +148,12 @@ function renderProducts(page: string) {
       price.textContent = new Intl.NumberFormat('ko-KR', {
         style: 'currency', currency: 'KRW', maximumFractionDigits: 0,
       }).format(product.price)
+      if (product.category === 'laptop-stickers') {
+        const status = document.createElement('span')
+        status.className = 'product-status'
+        status.textContent = '준비 중'
+        price.append(status)
+      }
       link.append(price)
     }
     card.append(link)
