@@ -47,7 +47,7 @@ body {
   position: fixed;
   right: clamp(20px, 4vw, 48px);
   bottom: calc(64px + env(safe-area-inset-bottom, 0px));
-  width: clamp(80px, 9vw, 112px);
+  width: clamp(104px, 12vw, 148px);
   height: auto;
   z-index: 2;
   pointer-events: none;
