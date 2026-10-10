@@ -112,6 +112,14 @@ body {
   display: none;
 }
 
+.site-header:not(.is-content-page) .brand {
+  width: clamp(280px, 44vw, 540px);
+}
+
+.site-header:not(.is-content-page) .site-nav {
+  font-size: clamp(14px, 1.6vw, 20px);
+}
+
 .site-nav {
   visibility: hidden;
   display: flex;
