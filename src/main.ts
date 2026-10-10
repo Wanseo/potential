@@ -1,60 +1,67 @@
 import './style.css'
-import heroImg from './assets/hero.png'
-import typescriptLogo from './assets/typescript.svg'
-import viteLogo from './assets/vite.svg'
-import { setupCounter } from './counter.ts'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-<section id="center">
-  <div class="hero">
-    <img src="${heroImg}" class="base" width="170" height="179">
-    <img src="${typescriptLogo}" class="framework" alt="TypeScript logo"/>
-    <img src="${viteLogo}" class="vite" alt="Vite logo" />
-  </div>
-  <div>
-    <h1>Get started</h1>
-    <p>Edit <code>src/main.ts</code> and save to test <code>HMR</code></p>
-  </div>
-  <button id="counter" type="button" class="counter"></button>
-</section>
+const app = document.querySelector<HTMLDivElement>('#app')!
 
-<div class="ticks"></div>
-
-<section id="next-steps">
-  <div id="docs">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="${import.meta.env.BASE_URL}icons.svg#documentation-icon"></use></svg>
-    <h2>Documentation</h2>
-    <p>Your questions, answered</p>
-    <ul>
-      <li>
-        <a href="https://vite.dev/" target="_blank">
-          <img class="logo" src="${viteLogo}" alt="" />
-          Explore Vite
-        </a>
-      </li>
-      <li>
-        <a href="https://www.typescriptlang.org" target="_blank">
-          <img class="button-icon" src="${typescriptLogo}" alt="">
-          Learn more
-        </a>
-      </li>
-    </ul>
-  </div>
-  <div id="social">
-    <svg class="icon" role="presentation" aria-hidden="true"><use href="${import.meta.env.BASE_URL}icons.svg#social-icon"></use></svg>
-    <h2>Connect with us</h2>
-    <p>Join the Vite community</p>
-    <ul>
-      <li><a href="https://github.com/vitejs/vite" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="${import.meta.env.BASE_URL}icons.svg#github-icon"></use></svg>GitHub</a></li>
-      <li><a href="https://chat.vite.dev/" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="${import.meta.env.BASE_URL}icons.svg#discord-icon"></use></svg>Discord</a></li>
-      <li><a href="https://x.com/vite_js" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="${import.meta.env.BASE_URL}icons.svg#x-icon"></use></svg>X.com</a></li>
-      <li><a href="https://bsky.app/profile/vite.dev" target="_blank"><svg class="button-icon" role="presentation" aria-hidden="true"><use href="${import.meta.env.BASE_URL}icons.svg#bluesky-icon"></use></svg>Bluesky</a></li>
-    </ul>
-  </div>
-</section>
-
-<div class="ticks"></div>
-<section id="spacer"></section>
+app.innerHTML = `
+  <header class="site-header">
+    <a class="brand" href="${import.meta.env.BASE_URL}" aria-label="Potential 홈">
+      <span class="brand-text" aria-hidden="true">POTENTIAL</span>
+      <img class="brand-image" alt="POTENTIAL" hidden />
+    </a>
+  </header>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const brand = document.querySelector<HTMLAnchorElement>('.brand')!
+const logo = document.querySelector<HTMLImageElement>('.brand-image')!
+const label = document.querySelector<HTMLSpanElement>('.brand-text')!
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+let animation: Animation | undefined
+let introFinished = false
+
+function playIntro() {
+  if (reducedMotion.matches || introFinished) return
+
+  animation?.cancel()
+  const bounds = brand.getBoundingClientRect()
+  const scale = Math.max(1, Math.min((window.innerWidth * 0.86) / bounds.width, 5))
+  const x = (window.innerWidth - bounds.width * scale) / 2 - bounds.left
+  const y = (window.innerHeight - bounds.height * scale) / 2 - bounds.top
+  const centered = `translate(${x}px, ${y}px) scale(${scale})`
+
+  animation = brand.animate(
+    [
+      { transform: centered, opacity: 0, offset: 0 },
+      { transform: centered, opacity: 1, offset: 0.18 },
+      { transform: centered, opacity: 1, offset: 0.44 },
+      { transform: 'translate(0, 0) scale(1)', opacity: 1, offset: 1 },
+    ],
+    { duration: 2200, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' },
+  )
+  animation.onfinish = () => {
+    introFinished = true
+  }
+}
+
+// 원본 이미지를 public/potential-logo.png에 넣으면 자동으로 사용합니다.
+logo.onload = () => {
+  label.hidden = true
+  logo.hidden = false
+  playIntro()
+}
+logo.onerror = () => {
+  logo.hidden = true
+  label.hidden = false
+}
+logo.src = `${import.meta.env.BASE_URL}potential-logo.png`
+playIntro()
+
+window.addEventListener('resize', () => {
+  animation?.cancel()
+  introFinished = true
+})
+reducedMotion.addEventListener('change', () => {
+  if (reducedMotion.matches) {
+    animation?.cancel()
+    introFinished = true
+  }
+})
