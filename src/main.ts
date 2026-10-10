@@ -28,7 +28,13 @@ app.innerHTML = `
       </details>
       <a href="#about">About</a>
       <a href="#archive">Archive</a>
-      <a href="#contact">Contact</a>
+      <details class="shop-menu contact-menu">
+        <summary>Contact</summary>
+        <ul class="shop-dropdown contact-dropdown" aria-label="Contact 연락처">
+          <li><a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">@youaremypotential</a></li>
+          <li><a href="mailto:wanseo1206@gmail.com">wanseo1206@gmail.com</a></li>
+        </ul>
+      </details>
     </nav>
     <div class="header-actions">
       <span class="search-icon" role="img" aria-label="검색">
@@ -76,7 +82,6 @@ const pages: Record<string, string> = {
   'shop/phone-case': 'Phone Case',
   about: 'About',
   archive: 'Archive',
-  contact: 'Contact',
 }
 const content = document.querySelector<HTMLElement>('.page-content')!
 const home = document.querySelector<HTMLElement>('.home-content')!
@@ -184,13 +189,22 @@ function showPage(moveFocus = false) {
     })
     shopGroup.append(shopToggle, categories)
     navigation.append(shopGroup)
-    for (const route of ['about', 'archive', 'contact'] as const) {
+    for (const route of ['about', 'archive'] as const) {
       const link = document.createElement('a')
       link.href = `#${route}`
       link.textContent = pages[route]
       link.addEventListener('click', () => { menu.open = false })
       navigation.append(link)
     }
+    const contactGroup = document.createElement('details')
+    contactGroup.className = 'breadcrumb-shop-group'
+    const contactToggle = document.createElement('summary')
+    contactToggle.textContent = 'Contact'
+    const contactLinks = document.createElement('div')
+    contactLinks.className = 'breadcrumb-categories contact-links'
+    contactLinks.innerHTML = '<a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">@youaremypotential</a><a href="mailto:wanseo1206@gmail.com">wanseo1206@gmail.com</a>'
+    contactGroup.append(contactToggle, contactLinks)
+    navigation.append(contactGroup)
     menu.append(toggle, navigation)
     menu.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
