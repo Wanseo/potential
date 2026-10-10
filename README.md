@@ -23,7 +23,8 @@ Vite의 vanilla-ts 템플릿으로 만든 TypeScript 프로젝트입니다.
 `image`에는 `products/파일명.png`처럼 public 기준 경로를 사용합니다.
 카테고리는 `laptop-stickers`, `calendar`, `griptok`, `memo-pad`, `eco-bag` 중
 하나를 지정합니다. 카테고리 화면은 해당 상품만 표시하고 ALL(`#shop`)은
-전체 상품을 표시합니다. 현재 등록된 상품은 없습니다.
+전체 상품을 표시합니다. 현재 첫 번째 스티커가 등록되어 있습니다.
+`price`에 원화 금액을 입력하면 상품 이름 아래에 가격이 표시됩니다.
 
 Node.js 24 기준:
 

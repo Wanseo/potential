@@ -86,8 +86,17 @@ function renderProducts(page: string) {
     image.alt = product.name
     image.loading = 'lazy'
     const name = document.createElement('p')
+    name.className = 'product-name'
     name.textContent = product.name
     card.append(image, name)
+    if (product.price !== undefined) {
+      const price = document.createElement('p')
+      price.className = 'product-price'
+      price.textContent = new Intl.NumberFormat('ko-KR', {
+        style: 'currency', currency: 'KRW', maximumFractionDigits: 0,
+      }).format(product.price)
+      card.append(price)
+    }
     grid.append(card)
   })
   content.append(grid)
