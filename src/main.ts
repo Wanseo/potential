@@ -19,10 +19,10 @@ app.innerHTML = `
           <li><a href="#shop">ALL</a></li>
           <li><a href="#shop/laptop-stickers">Laptop Stickers</a></li>
           <li><a href="#shop/calendar">Calendar</a></li>
+          <li><a href="#shop/phone-case">Phone Case</a></li>
           <li><a href="#shop/griptok">GripTok</a></li>
           <li><a href="#shop/memo-pad">Memo Pad</a></li>
           <li><a href="#shop/eco-bag">Eco Bag</a></li>
-          <li><a href="#shop/phone-case">Phone Case</a></li>
         </ul>
       </div>
       <a href="#about">About</a>
