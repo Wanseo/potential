@@ -14,6 +14,7 @@ app.innerHTML = `
       <div class="shop-menu">
         <a href="#shop">Shop</a>
         <ul class="shop-dropdown" aria-label="Shop 상품 분류">
+          <li><a href="#shop">ALL</a></li>
           <li><a href="#shop/laptop-stickers">Laptop Stickers</a></li>
           <li><a href="#shop/calendar">Calendar</a></li>
           <li><a href="#shop/griptok">GripTok</a></li>
