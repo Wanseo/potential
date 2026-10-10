@@ -131,7 +131,7 @@ function showPage(moveFocus = false) {
   breadcrumb.replaceChildren()
   if (title) {
     const segments = page === 'shop' ? ['SHOP', 'ALL']
-      : product ? ['SHOP', product.name.toUpperCase()]
+      : product ? ['SHOP', (pages[`shop/${product.category}`] ?? product.category).toUpperCase()]
       : page.startsWith('shop/') ? ['SHOP', title.toUpperCase()]
       : [title.toUpperCase()]
     segments.forEach((segment, index) => {
