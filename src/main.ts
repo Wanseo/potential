@@ -46,6 +46,14 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 let animation: Animation | undefined
 let introFinished = false
 
+// 같은 탭에서 새로고침하거나 홈으로 돌아와도 인트로를 반복하지 않습니다.
+try {
+  introFinished = sessionStorage.getItem('potential:intro-seen') === 'true'
+  sessionStorage.setItem('potential:intro-seen', 'true')
+} catch {
+  // 저장소 사용이 제한되어도 현재 페이지 안에서 홈 이동은 정상 동작합니다.
+}
+
 const pages: Record<string, string> = {
   shop: 'Shop',
   'shop/laptop-stickers': 'Laptop Stickers',
@@ -82,6 +90,20 @@ function showPage(moveFocus = false) {
 }
 
 window.addEventListener('hashchange', () => showPage(true))
+window.addEventListener('popstate', () => showPage(true))
+brand.addEventListener('click', (event) => {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+
+  event.preventDefault()
+  animation?.cancel()
+  introFinished = true
+  header.classList.add('is-settled')
+  if (window.location.hash) {
+    window.history.pushState(null, '', `${window.location.pathname}${window.location.search}`)
+  }
+  showPage()
+  window.scrollTo({ top: 0, behavior: 'instant' })
+})
 showPage()
 
 function playIntro() {
