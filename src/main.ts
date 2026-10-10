@@ -18,7 +18,7 @@ app.innerHTML = `
         <summary>Shop</summary>
         <ul class="shop-dropdown" aria-label="Shop 상품 분류">
           <li><a href="#shop">ALL</a></li>
-          <li><a href="#shop/laptop-stickers">Laptop Stickers</a></li>
+          <li><a href="#shop/laptop-stickers">Laptop Sticker</a></li>
           <li><a href="#shop/calendar">Calendar</a></li>
           <li><a href="#shop/phone-case">Phone Case</a></li>
           <li><a href="#shop/griptok">Phone Grip</a></li>
@@ -74,7 +74,7 @@ let introFinished = false
 
 const pages: Record<string, string> = {
   shop: 'Shop',
-  'shop/laptop-stickers': 'Laptop Stickers',
+  'shop/laptop-stickers': 'Laptop Sticker',
   'shop/calendar': 'Calendar',
   'shop/griptok': 'Phone Grip',
   'shop/memo-pad': 'Memo Pad',
