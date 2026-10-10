@@ -14,6 +14,7 @@ app.innerHTML = `
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
       <a href="#archive">Archive</a>
+      <a href="https://www.instagram.com/wsjoy_/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
   </header>
   <main class="page-content" hidden>
