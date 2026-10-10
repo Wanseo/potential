@@ -42,8 +42,9 @@ body {
 
 .brand-prefix {
   flex: none;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: clamp(16px, 2vw, 24px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.2;
   white-space: nowrap;
 }
