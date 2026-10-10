@@ -130,9 +130,9 @@ function showPage(moveFocus = false) {
   breadcrumb.hidden = !title
   breadcrumb.replaceChildren()
   if (title) {
-    const segments = page === 'shop' ? ['SHOP', 'ALL']
-      : product ? ['SHOP', (pages[`shop/${product.category}`] ?? product.category).toUpperCase()]
-      : page.startsWith('shop/') ? ['SHOP', title.toUpperCase()]
+    const segments = page === 'shop' ? ['Shop', 'ALL']
+      : product ? ['Shop', (pages[`shop/${product.category}`] ?? product.category).toUpperCase()]
+      : page.startsWith('shop/') ? ['Shop', title.toUpperCase()]
       : [title.toUpperCase()]
     segments.forEach((segment, index) => {
       if (index) breadcrumb.append(' / ')
