@@ -4,6 +4,7 @@ export type ProductCategory =
   | 'griptok'
   | 'memo-pad'
   | 'eco-bag'
+  | 'phone-case'
 
 export interface Product {
   id: string

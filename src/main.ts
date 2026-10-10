@@ -22,6 +22,7 @@ app.innerHTML = `
           <li><a href="#shop/griptok">GripTok</a></li>
           <li><a href="#shop/memo-pad">Memo Pad</a></li>
           <li><a href="#shop/eco-bag">Eco Bag</a></li>
+          <li><a href="#shop/phone-case">Phone Case</a></li>
         </ul>
       </div>
       <a href="#about">About</a>
@@ -57,6 +58,7 @@ const pages: Record<string, string> = {
   'shop/griptok': 'GripTok',
   'shop/memo-pad': 'Memo Pad',
   'shop/eco-bag': 'Eco Bag',
+  'shop/phone-case': 'Phone Case',
   about: 'About',
   archive: 'Archive',
 }
