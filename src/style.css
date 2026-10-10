@@ -222,6 +222,15 @@ body {
   position: relative;
 }
 
+.shop-menu > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.shop-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
 .shop-dropdown {
   position: absolute;
   top: 100%;
@@ -263,8 +272,7 @@ body {
   background: #fff;
 }
 
-.shop-menu:hover .shop-dropdown,
-.shop-menu:focus-within .shop-dropdown {
+.shop-menu[open] .shop-dropdown {
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
@@ -272,7 +280,7 @@ body {
 
 .shop-dropdown a {
   display: block;
-  padding: 9px 16px;
+  padding: 9px 24px;
   white-space: nowrap;
 }
 
@@ -351,7 +359,7 @@ body {
 }
 
 .breadcrumb-categories {
-  padding: 0 0 8px 12px;
+  padding: 0 0 8px 24px;
 }
 
 .breadcrumb-categories a {

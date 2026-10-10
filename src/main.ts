@@ -14,8 +14,8 @@ app.innerHTML = `
     </a>
     <div class="header-menu-row">
     <nav class="site-nav" aria-label="메인 메뉴">
-      <div class="shop-menu">
-        <a href="#shop">Shop</a>
+      <details class="shop-menu">
+        <summary>Shop</summary>
         <ul class="shop-dropdown" aria-label="Shop 상품 분류">
           <li><a href="#shop">ALL</a></li>
           <li><a href="#shop/laptop-stickers">Laptop Stickers</a></li>
@@ -25,7 +25,7 @@ app.innerHTML = `
           <li><a href="#shop/memo-pad">Memo Pad</a></li>
           <li><a href="#shop/eco-bag">Eco Bag</a></li>
         </ul>
-      </div>
+      </details>
       <a href="#about">About</a>
       <a href="#archive">Archive</a>
     </nav>
@@ -156,12 +156,6 @@ function showPage(moveFocus = false) {
       categories.append(link)
     })
     shopGroup.append(shopToggle, categories)
-    shopGroup.addEventListener('pointerenter', (event) => {
-      if (event.pointerType !== 'touch') shopGroup.open = true
-    })
-    shopGroup.addEventListener('pointerleave', () => {
-      if (!shopGroup.contains(document.activeElement)) shopGroup.open = false
-    })
     navigation.append(shopGroup)
     for (const route of ['about', 'archive'] as const) {
       const link = document.createElement('a')
