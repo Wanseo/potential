@@ -165,6 +165,11 @@ function showPage(moveFocus = false) {
     const shopToggle = document.createElement('summary')
     shopToggle.setAttribute('aria-label', 'Shop 상품 분류 펼치기')
     shopToggle.textContent = 'Shop'
+    const shopArrow = document.createElement('span')
+    shopArrow.className = 'shop-short-arrow'
+    shopArrow.setAttribute('aria-hidden', 'true')
+    shopArrow.innerHTML = '<svg viewBox="0 0 16 16" fill="none"><path d="M8 5v6M4 8l4 4 4-4" /></svg>'
+    shopToggle.append(shopArrow)
     const categories = document.createElement('nav')
     categories.className = 'breadcrumb-categories'
     categories.setAttribute('aria-label', 'Shop 상품 분류')
