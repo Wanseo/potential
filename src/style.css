@@ -152,6 +152,32 @@ body {
   pointer-events: none;
 }
 
+.shop-dropdown::before,
+.shop-dropdown::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  clip-path: polygon(
+    1% 2%, 12% 0%, 24% 1.5%, 38% 0.5%, 52% 2%, 67% 0%,
+    82% 1%, 98% 0.5%, 99% 13%, 98% 28%, 100% 44%, 98.5% 61%,
+    100% 78%, 98% 98%, 84% 100%, 69% 98.5%, 53% 100%,
+    38% 98%, 23% 100%, 8% 98.5%, 0% 99%, 1.5% 82%,
+    0% 66%, 1% 49%, 0% 33%, 1.5% 17%
+  );
+}
+
+.shop-dropdown::before {
+  inset: 7px -3px -3px;
+  z-index: -2;
+  background: #20201e;
+}
+
+.shop-dropdown::after {
+  inset: 10px 0 0;
+  z-index: -1;
+  background: #fff;
+}
+
 .shop-menu:hover .shop-dropdown,
 .shop-menu:focus-within .shop-dropdown {
   visibility: visible;
