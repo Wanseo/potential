@@ -11,10 +11,17 @@ app.innerHTML = `
         <img class="brand-image" alt="POTENTIAL" hidden />
       </span>
     </a>
+    <nav class="site-nav" aria-label="메인 메뉴">
+      <span>Shop</span>
+      <span>About</span>
+      <span>Archive</span>
+      <span>Stores</span>
+    </nav>
   </header>
 `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
+const header = document.querySelector<HTMLElement>('.site-header')!
 const prefix = document.querySelector<HTMLSpanElement>('.brand-prefix')!
 const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
@@ -25,7 +32,10 @@ let prefixAnimation: Animation | undefined
 let introFinished = false
 
 function playIntro() {
-  if (reducedMotion.matches || introFinished) return
+  if (reducedMotion.matches || introFinished) {
+    header.classList.add('is-settled')
+    return
+  }
 
   animation?.cancel()
   prefixAnimation?.cancel()
@@ -63,6 +73,7 @@ function playIntro() {
     introFinished = true
     // 이동 효과를 제거해 최종 레이아웃에 고정한 뒤 문구만 표시합니다.
     animation?.cancel()
+    header.classList.add('is-settled')
     prefix.style.opacity = '1'
     prefixAnimation = prefix.animate(
       [{ opacity: 0 }, { opacity: 1 }],
@@ -91,6 +102,7 @@ window.addEventListener('resize', () => {
   prefixAnimation?.cancel()
   prefix.style.opacity = '1'
   introFinished = true
+  header.classList.add('is-settled')
 })
 reducedMotion.addEventListener('change', () => {
   if (reducedMotion.matches) {
@@ -98,5 +110,6 @@ reducedMotion.addEventListener('change', () => {
     prefixAnimation?.cancel()
     prefix.style.opacity = '1'
     introFinished = true
+    header.classList.add('is-settled')
   }
 })
