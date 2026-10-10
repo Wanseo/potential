@@ -46,14 +46,16 @@ function playIntro() {
 logo.onload = () => {
   label.hidden = true
   logo.hidden = false
+  brand.classList.add('is-ready')
   playIntro()
 }
 logo.onerror = () => {
   logo.hidden = true
   label.hidden = false
+  brand.classList.add('is-ready')
+  playIntro()
 }
 logo.src = `${import.meta.env.BASE_URL}potential-logo.png`
-playIntro()
 
 window.addEventListener('resize', () => {
   animation?.cancel()
