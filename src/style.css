@@ -1,4 +1,10 @@
 :root {
+  --outline-shape: polygon(
+    0.4% 0.7%, 24% 0.2%, 52% 0.6%, 78% 0.1%, 99.5% 0.3%,
+    99.8% 28%, 99.4% 61%, 99.9% 82%, 99.5% 99.5%,
+    73% 99.8%, 45% 99.4%, 18% 99.9%, 0.2% 99.5%,
+    0.6% 73%, 0.1% 44%, 0.5% 19%
+  );
   font-family: Arial, Helvetica, sans-serif;
   color: #20201e;
   background: #fff;
@@ -191,12 +197,7 @@ body {
   content: '';
   position: absolute;
   pointer-events: none;
-  clip-path: polygon(
-    0.4% 0.7%, 24% 0.2%, 52% 0.6%, 78% 0.1%, 99.5% 0.3%,
-    99.8% 28%, 99.4% 61%, 99.9% 82%, 99.5% 99.5%,
-    73% 99.8%, 45% 99.4%, 18% 99.9%, 0.2% 99.5%,
-    0.6% 73%, 0.1% 44%, 0.5% 19%
-  );
+  clip-path: var(--outline-shape);
 }
 
 .shop-dropdown::before {
@@ -246,6 +247,32 @@ body {
   width: 100%;
   aspect-ratio: 1;
   object-fit: contain;
+}
+
+.product-card {
+  position: relative;
+  isolation: isolate;
+  padding: 20px;
+}
+
+.product-card::before,
+.product-card::after {
+  content: '';
+  position: absolute;
+  clip-path: var(--outline-shape);
+  pointer-events: none;
+}
+
+.product-card::before {
+  inset: 0;
+  z-index: -2;
+  background: #20201e;
+}
+
+.product-card::after {
+  inset: 3px;
+  z-index: -1;
+  background: #fff;
 }
 
 .product-card p {

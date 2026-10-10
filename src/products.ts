@@ -19,7 +19,7 @@ export const products: Product[] = [
     id: 'sticker-01',
     name: 'POTENTIAL sticker',
     category: 'laptop-stickers',
-    image: 'products/sticker-01.png',
+    image: 'products/sticker-01-white.png',
     price: 6000,
   },
 ]
