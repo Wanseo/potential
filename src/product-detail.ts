@@ -33,7 +33,7 @@ export function renderProductDetail(container: HTMLElement, product: Product) {
   if (product.price !== undefined && product.category === 'laptop-stickers') {
     const status = document.createElement('span')
     status.className = 'product-status'
-    status.textContent = '준비중'
+    status.textContent = '준비 중'
     container.querySelector('.detail-price')!.replaceChildren()
     container.querySelector('.detail-price')!.append(status)
   }

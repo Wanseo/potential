@@ -152,7 +152,7 @@ function renderProducts(page: string) {
       if (product.category === 'laptop-stickers') {
         const status = document.createElement('span')
         status.className = 'product-status'
-        status.textContent = '준비중'
+        status.textContent = '준비 중'
         price.replaceChildren()
         price.append(status)
       }
