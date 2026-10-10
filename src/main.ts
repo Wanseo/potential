@@ -4,9 +4,12 @@ const app = document.querySelector<HTMLDivElement>('#app')!
 
 app.innerHTML = `
   <header class="site-header">
-    <a class="brand" href="${import.meta.env.BASE_URL}" aria-label="Potential 홈">
-      <span class="brand-text" aria-hidden="true">POTENTIAL</span>
-      <img class="brand-image" alt="POTENTIAL" hidden />
+    <a class="brand" href="${import.meta.env.BASE_URL}" aria-label="you are my Potential 홈">
+      <span class="brand-prefix">you are my</span>
+      <span class="brand-logo">
+        <span class="brand-text" aria-hidden="true">POTENTIAL</span>
+        <img class="brand-image" alt="POTENTIAL" hidden />
+      </span>
     </a>
   </header>
 `
