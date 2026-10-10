@@ -27,6 +27,9 @@ app.innerHTML = `
       <a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
   </header>
+  <main class="home-content" aria-label="POTENTIAL 홈">
+    <img class="home-image" src="${import.meta.env.BASE_URL}main-image-cutout.png" alt="파란색과 분홍색 POTENTIAL 패키지 상자" fetchpriority="high" />
+  </main>
   <main class="page-content" hidden>
     <h1 tabindex="-1"></h1>
   </main>
@@ -57,6 +60,7 @@ const pages: Record<string, string> = {
   archive: 'Archive',
 }
 const content = document.querySelector<HTMLElement>('.page-content')!
+const home = document.querySelector<HTMLElement>('.home-content')!
 const heading = content.querySelector<HTMLHeadingElement>('h1')!
 const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a')
 
@@ -64,6 +68,7 @@ function showPage(moveFocus = false) {
   const page = window.location.hash.slice(1)
   const title = Object.hasOwn(pages, page) ? pages[page] : undefined
   content.hidden = !title
+  home.hidden = Boolean(title)
   heading.textContent = title ?? ''
   document.title = title ? `${title} | POTENTIAL` : 'POTENTIAL'
   menuLinks.forEach((link) => {

@@ -107,6 +107,26 @@ body {
   visibility: visible;
 }
 
+.home-content {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 32px clamp(20px, 4vw, 48px);
+  visibility: hidden;
+}
+
+.site-header.is-settled ~ .home-content {
+  visibility: visible;
+}
+
+.home-image {
+  display: block;
+  width: min(680px, 80vw);
+  max-width: 100%;
+  max-height: 60svh;
+  object-fit: contain;
+}
+
 @media (max-width: 640px) {
   .site-nav {
     width: 100%;
