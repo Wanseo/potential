@@ -52,7 +52,7 @@ body {
   z-index: 2;
   pointer-events: none;
   visibility: hidden;
-  animation: logo-spin 30s linear infinite;
+  animation: logo-spin 24s linear infinite;
 }
 
 @keyframes logo-spin {
