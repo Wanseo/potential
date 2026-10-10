@@ -101,6 +101,12 @@ homeShopMenu.addEventListener('pointerenter', (event) => {
 homeShopMenu.addEventListener('pointerleave', (event) => {
   if (event.pointerType !== 'touch' && !homeShopPinned) homeShopMenu.open = false
 })
+document.querySelector('.site-nav')!.addEventListener('click', (event) => {
+  if (event.target instanceof Node && !homeShopMenu.contains(event.target)) {
+    homeShopPinned = false
+    homeShopMenu.open = false
+  }
+})
 
 function renderProducts(page: string) {
   content.replaceChildren()
