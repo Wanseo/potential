@@ -113,28 +113,28 @@ body {
 }
 
 .site-header:not(.is-content-page) .brand {
-  width: 230px;
+  width: 287.5px;
 }
 
 .site-header:not(.is-content-page) .site-nav {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 500;
-  gap: 10px;
+  gap: 12.5px;
   line-height: 1.5;
 }
 
 .site-header:not(.is-content-page) {
-  gap: 40px;
+  gap: 50px;
   padding-top: 20px;
 }
 
 @media (max-width: 940px) {
   .site-header:not(.is-content-page) .brand {
-    width: 100px;
+    width: 125px;
   }
 
   .site-header:not(.is-content-page) .site-nav {
-    font-size: 13px;
+    font-size: 16.25px;
   }
 }
 
