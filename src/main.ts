@@ -135,19 +135,41 @@ function showPage(moveFocus = false) {
     const menu = document.createElement('details')
     menu.className = 'breadcrumb-menu'
     const toggle = document.createElement('summary')
-    toggle.textContent = '='
+    toggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h18" /></svg>'
     toggle.setAttribute('aria-label', '전체 메뉴 열기')
     const navigation = document.createElement('nav')
     navigation.className = 'breadcrumb-dropdown'
     navigation.setAttribute('aria-label', '전체 메뉴')
-    Object.entries(pages).forEach(([route, name]) => {
+    const shopGroup = document.createElement('details')
+    shopGroup.className = 'breadcrumb-shop-group'
+    const shopToggle = document.createElement('summary')
+    shopToggle.textContent = 'Shop'
+    const categories = document.createElement('nav')
+    categories.className = 'breadcrumb-categories'
+    categories.setAttribute('aria-label', 'Shop 상품 분류')
+    Object.entries(pages).filter(([route]) => route === 'shop' || route.startsWith('shop/')).forEach(([route, name]) => {
       const link = document.createElement('a')
       link.href = `#${route}`
-      link.textContent = route === 'shop' ? 'Shop / ALL' : name
+      link.textContent = route === 'shop' ? 'ALL' : name
       if (route === page) link.setAttribute('aria-current', 'page')
       link.addEventListener('click', () => { menu.open = false })
-      navigation.append(link)
+      categories.append(link)
     })
+    shopGroup.append(shopToggle, categories)
+    shopGroup.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'touch') shopGroup.open = true
+    })
+    shopGroup.addEventListener('pointerleave', () => {
+      if (!shopGroup.contains(document.activeElement)) shopGroup.open = false
+    })
+    navigation.append(shopGroup)
+    for (const route of ['about', 'archive'] as const) {
+      const link = document.createElement('a')
+      link.href = `#${route}`
+      link.textContent = pages[route]
+      link.addEventListener('click', () => { menu.open = false })
+      navigation.append(link)
+    }
     menu.append(toggle, navigation)
     menu.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {

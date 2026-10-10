@@ -240,20 +240,24 @@ body {
 }
 
 .shop-dropdown::before,
-.shop-dropdown::after {
+.shop-dropdown::after,
+.breadcrumb-dropdown::before,
+.breadcrumb-dropdown::after {
   content: '';
   position: absolute;
   pointer-events: none;
   clip-path: var(--outline-shape);
 }
 
-.shop-dropdown::before {
+.shop-dropdown::before,
+.breadcrumb-dropdown::before {
   inset: 7px -3px -3px;
   z-index: -2;
   background: #20201e;
 }
 
-.shop-dropdown::after {
+.shop-dropdown::after,
+.breadcrumb-dropdown::after {
   inset: 10px 0 0;
   z-index: -1;
   background: #fff;
@@ -298,17 +302,25 @@ body {
   display: inline-block;
   position: relative;
   margin-right: 16px;
-  vertical-align: middle;
+  vertical-align: -0.15em;
   white-space: normal;
 }
 
-.breadcrumb-menu summary {
+.breadcrumb-menu > summary {
   display: block;
   padding: 0 4px;
   cursor: pointer;
   list-style: none;
-  font-size: 1.4em;
+  font-size: 1em;
   line-height: 1;
+}
+
+.breadcrumb-menu > summary svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  stroke-width: 1.8;
 }
 
 .breadcrumb-menu summary::-webkit-details-marker {
@@ -317,20 +329,33 @@ body {
 
 .breadcrumb-dropdown {
   position: absolute;
-  top: calc(100% + 12px);
+  top: 100%;
   left: 0;
   z-index: 5;
   width: 210px;
-  padding: 10px 0;
-  border: 3px solid #20201e;
-  clip-path: var(--outline-shape);
+  padding: 16px 0 8px;
   background: #fff;
   font-size: 16px;
+  line-height: 1.4;
 }
 
-.breadcrumb-dropdown a {
+.breadcrumb-dropdown a,
+.breadcrumb-shop-group > summary {
   display: block;
   padding: 8px 16px;
+}
+
+.breadcrumb-shop-group > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.breadcrumb-categories {
+  padding: 0 0 8px 12px;
+}
+
+.breadcrumb-categories a {
+  padding-block: 6px;
 }
 
 .breadcrumb-dropdown a[aria-current='page'] {
