@@ -275,9 +275,9 @@ function playIntro() {
   const y = (window.innerHeight - logoBounds.height * scale) / 2
     - bounds.top - (logoBounds.top - bounds.top) * scale
   const centered = `translate(${x}px, ${y}px) scale(${scale})`
-  const fadeDuration = 400
-  const holdDuration = 800
-  const moveDuration = 400
+  const fadeDuration = 250
+  const holdDuration = 500
+  const moveDuration = 300
   const duration = fadeDuration + holdDuration + moveDuration
 
   animation = brand.animate(
