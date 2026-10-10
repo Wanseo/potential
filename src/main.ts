@@ -28,7 +28,7 @@ function playIntro() {
   const y = (window.innerHeight - bounds.height * scale) / 2 - bounds.top
   const centered = `translate(${x}px, ${y}px) scale(${scale})`
   const fadeDuration = 400
-  const holdDuration = 2500
+  const holdDuration = 4000
   const moveDuration = 1200
   const duration = fadeDuration + holdDuration + moveDuration
 
