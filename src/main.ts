@@ -12,6 +12,7 @@ app.innerHTML = `
         <img class="brand-image" alt="POTENTIAL" hidden />
       </span>
     </a>
+    <div class="header-menu-row">
     <nav class="site-nav" aria-label="메인 메뉴">
       <div class="shop-menu">
         <a href="#shop">Shop</a>
@@ -38,6 +39,7 @@ app.innerHTML = `
       </span>
       <span class="login-label">Log In</span>
       <span class="cart-label">Cart</span>
+    </div>
     </div>
   </header>
   <div class="page-breadcrumb" hidden></div>
