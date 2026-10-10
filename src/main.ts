@@ -28,7 +28,6 @@ app.innerHTML = `
       </div>
       <a href="#about">About</a>
       <a href="#archive">Archive</a>
-      <a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
     <div class="header-actions">
       <span class="search-icon" role="img" aria-label="검색">
