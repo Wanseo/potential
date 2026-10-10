@@ -1,4 +1,5 @@
 import './style.css'
+import { products, selectProducts } from './products.ts'
 
 const app = document.querySelector<HTMLDivElement>('#app')!
 
@@ -62,12 +63,43 @@ const content = document.querySelector<HTMLElement>('.page-content')!
 const home = document.querySelector<HTMLElement>('.home-content')!
 const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a')
 
+function renderProducts(page: string) {
+  content.replaceChildren()
+  if (page !== 'shop' && !page.startsWith('shop/')) return
+
+  const visibleProducts = selectProducts(products, page.split('/')[1])
+  if (!visibleProducts.length) {
+    const empty = document.createElement('p')
+    empty.className = 'products-empty'
+    empty.textContent = '아직 등록된 상품이 없습니다.'
+    content.append(empty)
+    return
+  }
+
+  const grid = document.createElement('ul')
+  grid.className = 'product-grid'
+  visibleProducts.forEach((product) => {
+    const card = document.createElement('li')
+    card.className = 'product-card'
+    const image = document.createElement('img')
+    image.src = `${import.meta.env.BASE_URL}${product.image.replace(/^\/+/, '')}`
+    image.alt = product.name
+    image.loading = 'lazy'
+    const name = document.createElement('p')
+    name.textContent = product.name
+    card.append(image, name)
+    grid.append(card)
+  })
+  content.append(grid)
+}
+
 function showPage(moveFocus = false) {
   const page = window.location.hash.slice(1)
   const title = Object.hasOwn(pages, page) ? pages[page] : undefined
   header.classList.toggle('has-page', Boolean(title))
   content.hidden = !title
   home.hidden = Boolean(title)
+  renderProducts(title ? page : '')
   if (title) content.setAttribute('aria-label', title)
   else content.removeAttribute('aria-label')
   document.title = title ? `${title} | POTENTIAL` : 'POTENTIAL'

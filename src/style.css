@@ -232,6 +232,33 @@ body {
   outline: none;
 }
 
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: 40px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.product-card p {
+  margin: 16px 0 0;
+  font-size: 16px;
+}
+
+.products-empty {
+  margin: 0;
+  font-size: 14px;
+  color: #6b6b6b;
+}
+
 .brand {
   visibility: hidden;
   display: flex;
