@@ -26,7 +26,6 @@ app.innerHTML = `
       <a href="#archive">Archive</a>
       <a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
-    <span class="page-label" hidden></span>
   </header>
   <main class="home-content" aria-label="POTENTIAL 홈">
     <img class="home-image" src="${import.meta.env.BASE_URL}main-image-cutout.png" alt="파란색과 분홍색 POTENTIAL 패키지 상자" fetchpriority="high" />
@@ -41,7 +40,6 @@ app.innerHTML = `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
 const header = document.querySelector<HTMLElement>('.site-header')!
-const pageLabel = document.querySelector<HTMLSpanElement>('.page-label')!
 const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
 const homeImage = document.querySelector<HTMLImageElement>('.home-image')!
@@ -68,8 +66,6 @@ function showPage(moveFocus = false) {
   const page = window.location.hash.slice(1)
   const title = Object.hasOwn(pages, page) ? pages[page] : undefined
   header.classList.toggle('has-page', Boolean(title))
-  pageLabel.hidden = !title
-  pageLabel.textContent = page === 'shop' ? 'ALL' : (title ?? '')
   content.hidden = !title
   home.hidden = Boolean(title)
   if (title) content.setAttribute('aria-label', title)
