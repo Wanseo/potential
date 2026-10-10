@@ -131,6 +131,40 @@ body {
   outline-offset: 5px;
 }
 
+.shop-menu {
+  position: relative;
+}
+
+.shop-dropdown {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  z-index: 3;
+  min-width: 180px;
+  margin: 0;
+  padding: 16px 0 8px;
+  list-style: none;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.4;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shop-menu:hover .shop-dropdown,
+.shop-menu:focus-within .shop-dropdown {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.shop-dropdown a {
+  display: block;
+  padding: 9px 16px;
+  white-space: nowrap;
+}
+
 .page-content {
   padding: clamp(32px, 6vw, 80px) clamp(20px, 4vw, 48px);
 }

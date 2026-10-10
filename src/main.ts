@@ -11,7 +11,16 @@ app.innerHTML = `
       </span>
     </a>
     <nav class="site-nav" aria-label="메인 메뉴">
-      <a href="#shop">Shop</a>
+      <div class="shop-menu">
+        <a href="#shop">Shop</a>
+        <ul class="shop-dropdown" aria-label="Shop 상품 분류">
+          <li><a href="#shop/laptop-stickers">Laptop Stickers</a></li>
+          <li><a href="#shop/calendar">Calendar</a></li>
+          <li><a href="#shop/griptok">GripTok</a></li>
+          <li><a href="#shop/memo-pad">Memo Pad</a></li>
+          <li><a href="#shop/eco-bag">Eco Bag</a></li>
+        </ul>
+      </div>
       <a href="#about">About</a>
       <a href="#archive">Archive</a>
       <a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">Instagram</a>
@@ -38,6 +47,11 @@ let introFinished = false
 
 const pages: Record<string, string> = {
   shop: 'Shop',
+  'shop/laptop-stickers': 'Laptop Stickers',
+  'shop/calendar': 'Calendar',
+  'shop/griptok': 'GripTok',
+  'shop/memo-pad': 'Memo Pad',
+  'shop/eco-bag': 'Eco Bag',
   about: 'About',
   archive: 'Archive',
 }
