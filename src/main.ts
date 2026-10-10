@@ -65,6 +65,7 @@ const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a')
 function showPage(moveFocus = false) {
   const page = window.location.hash.slice(1)
   const title = Object.hasOwn(pages, page) ? pages[page] : undefined
+  header.classList.toggle('has-page', Boolean(title))
   content.hidden = !title
   home.hidden = Boolean(title)
   if (title) content.setAttribute('aria-label', title)
