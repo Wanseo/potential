@@ -84,6 +84,7 @@ function renderProducts(page: string) {
   visibleProducts.forEach((product) => {
     const card = document.createElement('li')
     card.className = 'product-card'
+    card.dataset.productId = product.id
     const link = document.createElement('a')
     link.className = 'product-link'
     link.href = `#product/${product.id}`

@@ -234,6 +234,10 @@ body {
   padding: clamp(12px, 2vw, 32px);
 }
 
+.product-card[data-product-id='sticker-02'] img {
+  padding: calc(clamp(12px, 2vw, 32px) + 10%);
+}
+
 .product-card {
   position: relative;
   isolation: isolate;
