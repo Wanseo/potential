@@ -9,7 +9,7 @@ export function renderProductDetail(container: HTMLElement, product: Product) {
         <h1></h1>
         <p class="detail-price"></p>
         <p class="detail-description">POTENTIAL 로고 스티커</p>
-        <div class="detail-option"><span>Color</span><span>Yellow / Black</span></div>
+        <div class="detail-option"><span>Color</span><span class="detail-color"></span></div>
         <div class="detail-option">
           <span>Quantity</span>
           <div class="quantity-control">
@@ -26,6 +26,7 @@ export function renderProductDetail(container: HTMLElement, product: Product) {
   image.src = `${import.meta.env.BASE_URL}${product.image}`
   image.alt = product.name
   container.querySelector('h1')!.textContent = product.name
+  container.querySelector('.detail-color')!.textContent = product.color ?? '—'
   container.querySelector('.detail-price')!.textContent = product.price === undefined ? ''
     : new Intl.NumberFormat('ko-KR', { style: 'currency', currency: 'KRW', maximumFractionDigits: 0 }).format(product.price)
 
