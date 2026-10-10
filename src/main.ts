@@ -19,7 +19,10 @@ app.innerHTML = `
   <main class="page-content" hidden>
     <h1 tabindex="-1"></h1>
   </main>
-  <footer class="site-footer">© 2026 POTENTIAL. Site by <a href="https://www.instagram.com/wsjoy_/" target="_blank" rel="noopener noreferrer">@wsjoy_</a></footer>
+  <footer class="site-footer">
+    <span>© 2026 POTENTIAL. Site by <a href="https://www.instagram.com/wsjoy_/" target="_blank" rel="noopener noreferrer">@wsjoy_</a></span>
+    <span class="site-location">Seoul, Korea</span>
+  </footer>
 `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
