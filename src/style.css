@@ -98,7 +98,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: clamp(12px, 2vw, 24px) clamp(20px, 4vw, 48px);
+  padding: 20px clamp(20px, 4vw, 48px) clamp(12px, 2vw, 24px);
 }
 
 .header-menu-row {
@@ -157,7 +157,7 @@ body {
   display: none;
   position: absolute;
   right: clamp(20px, 4vw, 48px);
-  top: calc(clamp(12px, 2vw, 24px) + var(--site-logo-width) / 6);
+  top: calc(20px + var(--site-logo-width) / 6);
   transform: translateY(-50%);
   align-items: center;
   gap: var(--menu-gap);
