@@ -225,10 +225,19 @@ body {
 }
 
 .home-box-outline {
+  position: relative;
   transform: translateY(-8px);
   width: min(578px, 68vw, 76.5svh);
   max-width: 100%;
-  filter: drop-shadow(1.5px 0 0 #20201e) drop-shadow(-1.5px 0 0 #20201e) drop-shadow(0 1.5px 0 #20201e) drop-shadow(0 -1.5px 0 #20201e);
+}
+
+.home-box-border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
 }
 
 .home-image {

@@ -55,7 +55,18 @@ app.innerHTML = `
     I hope the things I make bring you joy.</p>
   <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
-    <div class="home-box-outline"><img class="home-image" src="${import.meta.env.BASE_URL}main-image-03.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" /></div>
+    <div class="home-box-outline">
+      <img class="home-image" src="${import.meta.env.BASE_URL}main-image-03.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" />
+      <svg class="home-box-border" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <filter id="box-rough-outline" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="noise" />
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" xChannelSelector="R" yChannelSelector="G" />
+          </filter>
+        </defs>
+        <polygon points="55,348 264,92 941,338 945,590 762,975 68,629" fill="none" stroke="#20201e" stroke-width="3" vector-effect="non-scaling-stroke" filter="url(#box-rough-outline)" />
+      </svg>
+    </div>
   </main>
   <main class="page-content" tabindex="-1" hidden></main>
   <footer class="site-footer">
