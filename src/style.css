@@ -97,22 +97,6 @@ body {
   padding: clamp(12px, 2vw, 24px) clamp(20px, 4vw, 48px);
 }
 
-.site-header.has-page::after {
-  content: '';
-  position: absolute;
-  left: clamp(20px, 4vw, 48px);
-  right: clamp(20px, 4vw, 48px);
-  bottom: 0;
-  height: 3px;
-  background: #20201e;
-  pointer-events: none;
-  clip-path: polygon(
-    0% 15%, 8% 5%, 18% 18%, 31% 0%, 44% 12%, 58% 4%,
-    72% 16%, 86% 3%, 100% 12%, 100% 88%, 89% 100%,
-    75% 86%, 61% 97%, 47% 89%, 34% 100%, 20% 87%, 7% 98%, 0% 88%
-  );
-}
-
 .site-nav {
   visibility: hidden;
   display: flex;
