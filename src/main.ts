@@ -57,6 +57,7 @@ app.innerHTML = `
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
 const header = document.querySelector<HTMLElement>('.site-header')!
 const breadcrumb = document.querySelector<HTMLDivElement>('.page-breadcrumb')!
+const headerActions = document.querySelector<HTMLDivElement>('.header-actions')!
 const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
 const homeImage = document.querySelector<HTMLImageElement>('.home-image')!
@@ -198,24 +199,28 @@ function showPage(moveFocus = false) {
       }
     })
     breadcrumb.append(menu)
+    const breadcrumbPath = document.createElement('span')
+    breadcrumbPath.className = 'breadcrumb-path'
     const segments = page === 'shop' ? ['Shop', 'ALL']
       : product ? ['Shop', (pages[`shop/${product.category}`] ?? product.category).toUpperCase()]
       : page.startsWith('shop/') ? ['Shop', title.toUpperCase()]
       : [title]
     segments.forEach((segment, index) => {
-      if (index) breadcrumb.append(' / ')
+      if (index) breadcrumbPath.append(' / ')
       if (index === 0 && segments.length > 1) {
         const link = document.createElement('a')
         link.href = '#shop'
         link.textContent = segment
-        breadcrumb.append(link)
+        breadcrumbPath.append(link)
       } else {
         const current = document.createElement('span')
         current.textContent = segment
         current.setAttribute('aria-current', 'page')
-        breadcrumb.append(current)
+        breadcrumbPath.append(current)
       }
     })
+    breadcrumb.append(breadcrumbPath)
+    if (header.classList.contains('is-shop-page')) breadcrumb.append(headerActions)
   }
   content.hidden = !title
   home.hidden = Boolean(title)

@@ -126,7 +126,6 @@ body {
 }
 
 .site-header.is-settled .site-nav,
-.site-header.is-settled.is-shop-page .header-actions,
 .site-header.is-settled ~ .home-content,
 .site-header.is-settled ~ .site-footer,
 .site-header.is-settled ~ .rotating-logo {
@@ -135,27 +134,20 @@ body {
 
 .header-actions {
   display: none;
-  position: absolute;
-  top: clamp(12px, 2vw, 24px);
-  right: clamp(20px, 4vw, 48px);
   align-items: center;
   gap: var(--menu-gap);
-  font-size: var(--menu-font-size);
-  margin-left: 0;
+  font-size: inherit;
+  margin-left: auto;
   visibility: hidden;
 }
 
-.site-header.is-shop-page .header-actions {
+.page-breadcrumb .header-actions {
   display: flex;
+  visibility: visible;
 }
 
 @media (max-width: 900px) {
-  .site-header.is-shop-page {
-    padding-top: 60px;
-  }
-
   .header-actions {
-    font-size: 16px;
     gap: 16px;
   }
 }
@@ -293,6 +285,9 @@ body {
 }
 
 .page-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   padding: 40px clamp(20px, 4vw, 48px) 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: clamp(16px, 1.6vw, 22px);
@@ -313,7 +308,7 @@ body {
 .breadcrumb-menu {
   display: inline-block;
   position: relative;
-  margin-right: 16px;
+  flex-shrink: 0;
   vertical-align: -0.15em;
   white-space: normal;
 }
