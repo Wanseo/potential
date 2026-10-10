@@ -1,6 +1,6 @@
 :root {
-  --menu-font-size: clamp(12px, 1.35vw, 18px);
-  --menu-gap: clamp(10px, 1.6vw, 24px);
+  --menu-font-size: clamp(14px, 2vw, 24px);
+  --menu-gap: clamp(8px, 1.2vw, 18px);
   --outline-shape: polygon(
     0.4% 0.7%, 24% 0.2%, 52% 0.6%, 78% 0.1%, 99.5% 0.3%,
     99.8% 28%, 99.4% 61%, 99.9% 82%, 99.5% 99.5%,
