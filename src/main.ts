@@ -32,7 +32,6 @@ app.innerHTML = `
         <summary>Contact</summary>
         <ul class="shop-dropdown contact-dropdown" aria-label="Contact 연락처">
           <li><a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">@youaremypotential</a></li>
-          <li><a href="mailto:wanseo1206@gmail.com">wanseo1206@gmail.com</a></li>
         </ul>
       </details>
     </nav>
@@ -224,7 +223,7 @@ function showPage(moveFocus = false) {
     contactToggle.textContent = 'Contact'
     const contactLinks = document.createElement('div')
     contactLinks.className = 'breadcrumb-categories contact-links'
-    contactLinks.innerHTML = '<a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">@youaremypotential</a><a href="mailto:wanseo1206@gmail.com">wanseo1206@gmail.com</a>'
+    contactLinks.innerHTML = '<a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">@youaremypotential</a>'
     contactGroup.append(contactToggle, contactLinks)
     navigation.append(contactGroup)
     menu.append(toggle, navigation)
