@@ -102,6 +102,7 @@ body {
 }
 
 .site-header.is-settled .site-nav,
+.site-header.is-settled ~ .home-content,
 .site-header.is-settled ~ .site-footer,
 .site-header.is-settled ~ .rotating-logo {
   visibility: visible;
@@ -113,10 +114,6 @@ body {
   place-items: center;
   padding: 32px clamp(20px, 4vw, 48px);
   visibility: hidden;
-}
-
-.site-header.is-settled ~ .home-content {
-  visibility: visible;
 }
 
 .home-image {

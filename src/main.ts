@@ -42,6 +42,7 @@ const brand = document.querySelector<HTMLAnchorElement>('.brand')!
 const header = document.querySelector<HTMLElement>('.site-header')!
 const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
+const homeImage = document.querySelector<HTMLImageElement>('.home-image')!
 const label = document.querySelector<HTMLSpanElement>('.brand-text')!
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 let animation: Animation | undefined
@@ -129,7 +130,7 @@ function playIntro() {
         transform: centered,
         opacity: 1,
         offset: (fadeDuration + holdDuration) / duration,
-        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
       { transform: 'translate(0, 0) scale(1)', opacity: 1, offset: 1 },
     ],
@@ -144,7 +145,9 @@ function playIntro() {
 }
 
 // 원본 이미지를 public/potential-logo.png에 넣으면 자동으로 사용합니다.
-logo.onload = () => {
+logo.onload = async () => {
+  // 박스도 미리 준비해 로고 도착 시 메뉴와 같은 프레임에 표시합니다.
+  await homeImage.decode().catch(() => undefined)
   label.hidden = true
   logo.hidden = false
   brand.classList.add('is-ready')
