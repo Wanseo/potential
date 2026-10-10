@@ -220,7 +220,7 @@ body {
 
 .home-image {
   display: block;
-  width: min(680px, 80vw, 90svh);
+  width: min(578px, 68vw, 76.5svh);
   max-width: 100%;
   height: auto;
   /* 상자 외곽 밖의 배경과 색 번짐이 화면에 남지 않게 합니다. */
