@@ -42,16 +42,8 @@ function playIntro() {
   const moveDuration = 1200
   const duration = fadeDuration + holdDuration + moveDuration
   const prefixFadeDuration = 300
-  const prefixDuration = duration + prefixFadeDuration
-
-  prefixAnimation = prefix.animate(
-    [
-      { opacity: 0, offset: 0 },
-      { opacity: 0, offset: duration / prefixDuration, easing: 'ease-in-out' },
-      { opacity: 1, offset: 1 },
-    ],
-    { duration: prefixDuration, easing: 'linear' },
-  )
+  // 문구 공간은 유지하고 투명도만 바꿔 로고 위치가 변하지 않게 합니다.
+  prefix.style.opacity = '0'
 
   animation = brand.animate(
     [
@@ -69,6 +61,13 @@ function playIntro() {
   )
   animation.onfinish = () => {
     introFinished = true
+    // 이동 효과를 제거해 최종 레이아웃에 고정한 뒤 문구만 표시합니다.
+    animation?.cancel()
+    prefix.style.opacity = '1'
+    prefixAnimation = prefix.animate(
+      [{ opacity: 0 }, { opacity: 1 }],
+      { duration: prefixFadeDuration, easing: 'ease-in-out' },
+    )
   }
 }
 
@@ -90,12 +89,14 @@ logo.src = `${import.meta.env.BASE_URL}potential-logo.png`
 window.addEventListener('resize', () => {
   animation?.cancel()
   prefixAnimation?.cancel()
+  prefix.style.opacity = '1'
   introFinished = true
 })
 reducedMotion.addEventListener('change', () => {
   if (reducedMotion.matches) {
     animation?.cancel()
     prefixAnimation?.cancel()
+    prefix.style.opacity = '1'
     introFinished = true
   }
 })
