@@ -38,7 +38,7 @@ function playIntro() {
     - bounds.top - (logoBounds.top - bounds.top) * scale
   const centered = `translate(${x}px, ${y}px) scale(${scale})`
   const fadeDuration = 400
-  const holdDuration = 2000
+  const holdDuration = 1500
   const moveDuration = 1200
   const duration = fadeDuration + holdDuration + moveDuration
   const prefixFadeDuration = 300
