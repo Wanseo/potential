@@ -39,7 +39,7 @@ function playIntro() {
   const centered = `translate(${x}px, ${y}px) scale(${scale})`
   const fadeDuration = 400
   const holdDuration = 1500
-  const moveDuration = 1200
+  const moveDuration = 700
   const duration = fadeDuration + holdDuration + moveDuration
   const prefixFadeDuration = 300
   // 문구 공간은 유지하고 투명도만 바꿔 로고 위치가 변하지 않게 합니다.
