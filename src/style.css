@@ -18,6 +18,20 @@ body {
   min-height: 100svh;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.site-footer {
+  margin-top: auto;
+  padding: 24px clamp(20px, 4vw, 48px);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .site-header {
   display: flex;
   align-items: center;
