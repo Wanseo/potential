@@ -108,6 +108,10 @@ body {
   max-width: 100%;
 }
 
+.site-header.is-content-page .site-nav {
+  display: none;
+}
+
 .site-nav {
   visibility: hidden;
   display: flex;
