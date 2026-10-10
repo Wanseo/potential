@@ -37,6 +37,7 @@ app.innerHTML = `
         </svg>
       </span>
       <span class="login-label">LOG IN</span>
+      <span class="cart-label">Cart</span>
     </div>
   </header>
   <div class="page-breadcrumb" hidden></div>

@@ -1,4 +1,6 @@
 :root {
+  --menu-font-size: clamp(16px, 2vw, 25px);
+  --menu-gap: clamp(20px, 3vw, 40px);
   --outline-shape: polygon(
     0.4% 0.7%, 24% 0.2%, 52% 0.6%, 78% 0.1%, 99.5% 0.3%,
     99.8% 28%, 99.4% 61%, 99.9% 82%, 99.5% 99.5%,
@@ -101,9 +103,9 @@ body {
   visibility: hidden;
   display: flex;
   align-items: center;
-  gap: clamp(20px, 3vw, 40px);
+  gap: var(--menu-gap);
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(16px, 2vw, 25px);
+  font-size: var(--menu-font-size);
   font-weight: 400;
   line-height: 1.2;
 }
@@ -119,15 +121,16 @@ body {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: clamp(20px, 3vw, 40px);
+  gap: var(--menu-gap);
+  font-size: var(--menu-font-size);
   margin-left: auto;
   visibility: hidden;
 }
 
 .search-icon {
   display: block;
-  width: 34px;
-  height: 34px;
+  width: 1em;
+  height: 1em;
 }
 
 .search-icon svg {
@@ -137,10 +140,12 @@ body {
   stroke-width: 1.5;
 }
 
-.login-label {
+.login-label,
+.cart-label {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: clamp(16px, 2vw, 25px);
+  font-size: inherit;
   font-weight: 400;
+  line-height: 1.2;
   white-space: nowrap;
 }
 
