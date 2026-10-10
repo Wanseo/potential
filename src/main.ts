@@ -11,12 +11,15 @@ app.innerHTML = `
       </span>
     </a>
     <nav class="site-nav" aria-label="메인 메뉴">
-      <span>Shop</span>
-      <span>About</span>
-      <span>Archive</span>
-      <span>Stores</span>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#archive">Archive</a>
+      <a href="#stores">Stores</a>
     </nav>
   </header>
+  <main class="page-content" hidden>
+    <h1 tabindex="-1"></h1>
+  </main>
 `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
@@ -26,6 +29,39 @@ const label = document.querySelector<HTMLSpanElement>('.brand-text')!
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 let animation: Animation | undefined
 let introFinished = false
+
+const pages: Record<string, string> = {
+  shop: 'Shop',
+  about: 'About',
+  archive: 'Archive',
+  stores: 'Stores',
+}
+const content = document.querySelector<HTMLElement>('.page-content')!
+const heading = content.querySelector<HTMLHeadingElement>('h1')!
+const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a')
+
+function showPage(moveFocus = false) {
+  const page = window.location.hash.slice(1)
+  const title = Object.hasOwn(pages, page) ? pages[page] : undefined
+  content.hidden = !title
+  heading.textContent = title ?? ''
+  document.title = title ? `${title} | POTENTIAL` : 'POTENTIAL'
+  menuLinks.forEach((link) => {
+    if (title && link.hash === `#${page}`) {
+      link.setAttribute('aria-current', 'page')
+    } else {
+      link.removeAttribute('aria-current')
+    }
+  })
+  if (title) {
+    animation?.cancel()
+    introFinished = true
+    if (moveFocus) heading.focus({ preventScroll: true })
+  }
+}
+
+window.addEventListener('hashchange', () => showPage(true))
+showPage()
 
 function playIntro() {
   if (reducedMotion.matches || introFinished) {
