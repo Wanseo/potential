@@ -205,7 +205,7 @@ function showPage(moveFocus = false) {
     const segments = page === 'shop' ? ['Shop', 'ALL']
       : product ? ['Shop', (pages[`shop/${product.category}`] ?? product.category).toUpperCase()]
       : page.startsWith('shop/') ? ['Shop', title.toUpperCase()]
-      : [title.toUpperCase()]
+      : [title]
     segments.forEach((segment, index) => {
       if (index) breadcrumb.append(' / ')
       if (index === 0 && segments.length > 1) {
