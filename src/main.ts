@@ -15,25 +15,42 @@ app.innerHTML = `
 `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
+const prefix = document.querySelector<HTMLSpanElement>('.brand-prefix')!
+const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
 const label = document.querySelector<HTMLSpanElement>('.brand-text')!
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 let animation: Animation | undefined
+let prefixAnimation: Animation | undefined
 let introFinished = false
 
 function playIntro() {
   if (reducedMotion.matches || introFinished) return
 
   animation?.cancel()
+  prefixAnimation?.cancel()
   const bounds = brand.getBoundingClientRect()
-  const scale = Math.max(1, Math.min((window.innerWidth * 0.86) / bounds.width, 5))
-  const x = (window.innerWidth - bounds.width * scale) / 2 - bounds.left
-  const y = (window.innerHeight - bounds.height * scale) / 2 - bounds.top
+  const logoBounds = logoContainer.getBoundingClientRect()
+  const scale = Math.max(1, Math.min((window.innerWidth * 0.86) / logoBounds.width, 5))
+  const x = (window.innerWidth - logoBounds.width * scale) / 2
+    - bounds.left - (logoBounds.left - bounds.left) * scale
+  const y = (window.innerHeight - logoBounds.height * scale) / 2
+    - bounds.top - (logoBounds.top - bounds.top) * scale
   const centered = `translate(${x}px, ${y}px) scale(${scale})`
   const fadeDuration = 400
   const holdDuration = 2000
   const moveDuration = 1200
   const duration = fadeDuration + holdDuration + moveDuration
+
+  prefixAnimation = prefix.animate(
+    [
+      { opacity: 0, offset: 0 },
+      { opacity: 0, offset: (fadeDuration + holdDuration) / duration },
+      { opacity: 1, offset: (fadeDuration + holdDuration + 400) / duration },
+      { opacity: 1, offset: 1 },
+    ],
+    { duration, easing: 'linear' },
+  )
 
   animation = brand.animate(
     [
@@ -71,11 +88,13 @@ logo.src = `${import.meta.env.BASE_URL}potential-logo.png`
 
 window.addEventListener('resize', () => {
   animation?.cancel()
+  prefixAnimation?.cancel()
   introFinished = true
 })
 reducedMotion.addEventListener('change', () => {
   if (reducedMotion.matches) {
     animation?.cancel()
+    prefixAnimation?.cancel()
     introFinished = true
   }
 })
