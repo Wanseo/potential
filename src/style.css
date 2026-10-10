@@ -362,6 +362,11 @@ body {
   list-style: none;
 }
 
+.breadcrumb-shop-group > summary > a {
+  display: inline;
+  padding: 0;
+}
+
 .breadcrumb-categories {
   padding: 0 0 8px 24px;
 }

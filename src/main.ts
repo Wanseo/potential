@@ -161,7 +161,19 @@ function showPage(moveFocus = false) {
     const shopGroup = document.createElement('details')
     shopGroup.className = 'breadcrumb-shop-group'
     const shopToggle = document.createElement('summary')
-    shopToggle.textContent = 'Shop'
+    const shopLink = document.createElement('a')
+    shopLink.href = '#shop'
+    shopLink.textContent = 'Shop'
+    shopLink.addEventListener('click', (event) => {
+      event.preventDefault()
+      event.stopPropagation()
+      menu.open = false
+      window.location.hash = 'shop'
+    })
+    const categoryToggle = document.createElement('span')
+    categoryToggle.textContent = ' ▾'
+    shopToggle.setAttribute('aria-label', 'Shop 상품 분류 펼치기')
+    shopToggle.append(shopLink, categoryToggle)
     const categories = document.createElement('nav')
     categories.className = 'breadcrumb-categories'
     categories.setAttribute('aria-label', 'Shop 상품 분류')
