@@ -34,13 +34,6 @@ body {
   font-size: clamp(16px, 2vw, 25px);
   font-weight: 400;
   line-height: 1.2;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.site-header.is-settled .site-nav {
-  opacity: 1;
-  visibility: visible;
 }
 
 @media (max-width: 640px) {
@@ -48,12 +41,6 @@ body {
     width: 100%;
     justify-content: space-between;
     gap: 8px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .site-nav {
-    transition: none;
   }
 }
 
@@ -78,6 +65,9 @@ body {
 .brand-logo {
   flex: 1;
   min-width: 0;
+  aspect-ratio: 3 / 1;
+  display: flex;
+  align-items: center;
 }
 
 .brand-image {
