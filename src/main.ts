@@ -20,8 +20,8 @@ app.innerHTML = `
           <li><a href="#shop">ALL</a></li>
           <li><a href="#shop/laptop-stickers">Laptop Sticker</a></li>
           <li><a href="#shop/calendar">Calendar</a></li>
-          <li><a href="#shop/phone-case">Phone Case</a></li>
           <li><a href="#shop/griptok">Phone Grip</a></li>
+          <li><a href="#shop/phone-case">Phone Case</a></li>
           <li><a href="#shop/memo-pad">Memo Pad</a></li>
           <li><a href="#shop/eco-bag">Eco Bag</a></li>
         </ul>
@@ -77,9 +77,9 @@ const pages: Record<string, string> = {
   'shop/laptop-stickers': 'Laptop Sticker',
   'shop/calendar': 'Calendar',
   'shop/griptok': 'Phone Grip',
+  'shop/phone-case': 'Phone Case',
   'shop/memo-pad': 'Memo Pad',
   'shop/eco-bag': 'Eco Bag',
-  'shop/phone-case': 'Phone Case',
   about: 'About',
   archive: 'Archive',
 }
