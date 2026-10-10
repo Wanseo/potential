@@ -30,9 +30,7 @@ app.innerHTML = `
   <main class="home-content" aria-label="POTENTIAL 홈">
     <img class="home-image" src="${import.meta.env.BASE_URL}main-image-cutout.png" alt="파란색과 분홍색 POTENTIAL 패키지 상자" fetchpriority="high" />
   </main>
-  <main class="page-content" hidden>
-    <h1 tabindex="-1"></h1>
-  </main>
+  <main class="page-content" tabindex="-1" hidden></main>
   <footer class="site-footer">
     <span>© 2026 POTENTIAL. Site by <a href="https://www.instagram.com/wsjoy_/" target="_blank" rel="noopener noreferrer">@wsjoy_</a></span>
     <span class="site-location">Seoul, Korea</span>
@@ -61,7 +59,6 @@ const pages: Record<string, string> = {
 }
 const content = document.querySelector<HTMLElement>('.page-content')!
 const home = document.querySelector<HTMLElement>('.home-content')!
-const heading = content.querySelector<HTMLHeadingElement>('h1')!
 const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.site-nav a')
 
 function showPage(moveFocus = false) {
@@ -69,7 +66,8 @@ function showPage(moveFocus = false) {
   const title = Object.hasOwn(pages, page) ? pages[page] : undefined
   content.hidden = !title
   home.hidden = Boolean(title)
-  heading.textContent = title ?? ''
+  if (title) content.setAttribute('aria-label', title)
+  else content.removeAttribute('aria-label')
   document.title = title ? `${title} | POTENTIAL` : 'POTENTIAL'
   menuLinks.forEach((link) => {
     if (title && link.hash === `#${page}`) {
@@ -82,7 +80,7 @@ function showPage(moveFocus = false) {
     animation?.cancel()
     introFinished = true
     header.classList.add('is-settled')
-    if (moveFocus) heading.focus({ preventScroll: true })
+    if (moveFocus) content.focus({ preventScroll: true })
   }
 }
 
