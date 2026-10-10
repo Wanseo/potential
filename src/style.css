@@ -400,6 +400,15 @@ body {
 .breadcrumb-shop-group > summary {
   cursor: pointer;
   list-style: none;
+  font-weight: 600;
+}
+
+.breadcrumb-dropdown > a {
+  font-weight: 600;
+}
+
+.breadcrumb-categories a {
+  font-weight: 400;
 }
 
 .shop-short-arrow {
