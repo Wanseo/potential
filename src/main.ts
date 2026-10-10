@@ -24,6 +24,7 @@ app.innerHTML = `
 `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
+const header = document.querySelector<HTMLElement>('.site-header')!
 const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
 const label = document.querySelector<HTMLSpanElement>('.brand-text')!
@@ -57,6 +58,7 @@ function showPage(moveFocus = false) {
   if (title) {
     animation?.cancel()
     introFinished = true
+    header.classList.add('is-settled')
     if (moveFocus) heading.focus({ preventScroll: true })
   }
 }
@@ -66,6 +68,7 @@ showPage()
 
 function playIntro() {
   if (reducedMotion.matches || introFinished) {
+    header.classList.add('is-settled')
     return
   }
 
@@ -101,6 +104,7 @@ function playIntro() {
     introFinished = true
     // 이동 효과를 제거해 최종 레이아웃에 고정합니다.
     animation?.cancel()
+    header.classList.add('is-settled')
   }
 }
 
@@ -122,10 +126,12 @@ logo.src = `${import.meta.env.BASE_URL}potential-logo.png`
 window.addEventListener('resize', () => {
   animation?.cancel()
   introFinished = true
+  header.classList.add('is-settled')
 })
 reducedMotion.addEventListener('change', () => {
   if (reducedMotion.matches) {
     animation?.cancel()
     introFinished = true
+    header.classList.add('is-settled')
   }
 })
