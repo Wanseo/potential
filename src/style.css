@@ -428,8 +428,7 @@ body {
   vertical-align: -0.12em;
 }
 
-.shop-short-arrow svg,
-.product-back svg {
+.shop-short-arrow svg {
   display: block;
   width: 0.85em;
   height: 0.85em;
@@ -607,20 +606,6 @@ body {
 .product-link:hover .product-name {
   text-decoration: underline;
   text-underline-offset: 0.2em;
-}
-
-.product-back {
-  color: inherit;
-  font-size: 13px;
-  text-decoration: none;
-}
-
-.product-back svg {
-  width: 1.275em;
-}
-
-.product-back:hover {
-  text-decoration: underline;
 }
 
 .product-detail {
