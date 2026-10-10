@@ -14,7 +14,6 @@ app.innerHTML = `
       <a href="#shop">Shop</a>
       <a href="#about">About</a>
       <a href="#archive">Archive</a>
-      <a href="#stores">Stores</a>
     </nav>
   </header>
   <main class="page-content" hidden>
@@ -36,7 +35,6 @@ const pages: Record<string, string> = {
   shop: 'Shop',
   about: 'About',
   archive: 'Archive',
-  stores: 'Stores',
 }
 const content = document.querySelector<HTMLElement>('.page-content')!
 const heading = content.querySelector<HTMLHeadingElement>('h1')!
