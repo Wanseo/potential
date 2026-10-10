@@ -153,7 +153,7 @@ body {
   visibility: hidden;
 }
 
-.site-header.is-settled.is-shop-page .header-actions {
+.site-header.is-settled.is-content-page .header-actions {
   display: flex;
   visibility: visible;
 }
