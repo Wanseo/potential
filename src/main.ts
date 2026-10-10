@@ -28,6 +28,7 @@ app.innerHTML = `
       </details>
       <a href="#about">About</a>
       <a href="#archive">Archive</a>
+      <a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
       <span class="search-icon" role="img" aria-label="검색">
@@ -74,6 +75,7 @@ const pages: Record<string, string> = {
   'shop/phone-case': 'Phone Case',
   about: 'About',
   archive: 'Archive',
+  contact: 'Contact',
 }
 const content = document.querySelector<HTMLElement>('.page-content')!
 const home = document.querySelector<HTMLElement>('.home-content')!
@@ -185,7 +187,7 @@ function showPage(moveFocus = false) {
     })
     shopGroup.append(shopToggle, categories)
     navigation.append(shopGroup)
-    for (const route of ['about', 'archive'] as const) {
+    for (const route of ['about', 'archive', 'contact'] as const) {
       const link = document.createElement('a')
       link.href = `#${route}`
       link.textContent = pages[route]
