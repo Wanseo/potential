@@ -30,6 +30,7 @@ app.innerHTML = `
       <a href="https://www.instagram.com/youaremypotential/" target="_blank" rel="noopener noreferrer">Instagram</a>
     </nav>
   </header>
+  <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
     <img class="home-image" src="${import.meta.env.BASE_URL}main-image-cutout.png" alt="파란색과 분홍색 POTENTIAL 패키지 상자" fetchpriority="high" />
   </main>
@@ -43,6 +44,7 @@ app.innerHTML = `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
 const header = document.querySelector<HTMLElement>('.site-header')!
+const breadcrumb = document.querySelector<HTMLDivElement>('.page-breadcrumb')!
 const logoContainer = document.querySelector<HTMLSpanElement>('.brand-logo')!
 const logo = document.querySelector<HTMLImageElement>('.brand-image')!
 const homeImage = document.querySelector<HTMLImageElement>('.home-image')!
@@ -115,6 +117,28 @@ function showPage(moveFocus = false) {
   const product = page.startsWith('product/')
     ? products.find((item) => item.id === page.slice('product/'.length)) : undefined
   const title = product?.name ?? (Object.hasOwn(pages, page) ? pages[page] : undefined)
+  breadcrumb.hidden = !title
+  breadcrumb.replaceChildren()
+  if (title) {
+    const segments = page === 'shop' ? ['SHOP', 'ALL']
+      : product ? ['SHOP', product.name.toUpperCase()]
+      : page.startsWith('shop/') ? ['SHOP', title.toUpperCase()]
+      : [title.toUpperCase()]
+    segments.forEach((segment, index) => {
+      if (index) breadcrumb.append(' / ')
+      if (index === 0 && segments.length > 1) {
+        const link = document.createElement('a')
+        link.href = '#shop'
+        link.textContent = segment
+        breadcrumb.append(link)
+      } else {
+        const current = document.createElement('span')
+        current.textContent = segment
+        current.setAttribute('aria-current', 'page')
+        breadcrumb.append(current)
+      }
+    })
+  }
   content.hidden = !title
   home.hidden = Boolean(title)
   renderProducts(title ? page : '')
