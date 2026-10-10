@@ -2,7 +2,7 @@ import type { Product } from './products.ts'
 
 export function renderProductDetail(container: HTMLElement, product: Product) {
   container.innerHTML = `
-    <a class="product-back" href="#shop/laptop-stickers" aria-label="상품 목록으로 돌아가기"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M11 8H5M8 4l-4 4 4 4" /></svg></a>
+    <a class="product-back" href="#shop/laptop-stickers" aria-label="상품 목록으로 돌아가기"><svg viewBox="0 0 24 16" fill="none" aria-hidden="true"><path d="M21 8H5M8 4l-4 4 4 4" /></svg></a>
     <article class="product-detail">
       <div class="detail-gallery"><img alt="" /></div>
       <div class="detail-info">

@@ -615,6 +615,10 @@ body {
   text-decoration: none;
 }
 
+.product-back svg {
+  width: 1.275em;
+}
+
 .product-back:hover {
   text-decoration: underline;
 }
