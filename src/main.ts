@@ -132,6 +132,30 @@ function showPage(moveFocus = false) {
   breadcrumb.hidden = !title
   breadcrumb.replaceChildren()
   if (title) {
+    const menu = document.createElement('details')
+    menu.className = 'breadcrumb-menu'
+    const toggle = document.createElement('summary')
+    toggle.textContent = '='
+    toggle.setAttribute('aria-label', '전체 메뉴 열기')
+    const navigation = document.createElement('nav')
+    navigation.className = 'breadcrumb-dropdown'
+    navigation.setAttribute('aria-label', '전체 메뉴')
+    Object.entries(pages).forEach(([route, name]) => {
+      const link = document.createElement('a')
+      link.href = `#${route}`
+      link.textContent = route === 'shop' ? 'Shop / ALL' : name
+      if (route === page) link.setAttribute('aria-current', 'page')
+      link.addEventListener('click', () => { menu.open = false })
+      navigation.append(link)
+    })
+    menu.append(toggle, navigation)
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        menu.open = false
+        toggle.focus()
+      }
+    })
+    breadcrumb.append(menu)
     const segments = page === 'shop' ? ['Shop', 'ALL']
       : product ? ['Shop', (pages[`shop/${product.category}`] ?? product.category).toUpperCase()]
       : page.startsWith('shop/') ? ['Shop', title.toUpperCase()]

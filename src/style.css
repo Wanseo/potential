@@ -294,6 +294,49 @@ body {
   text-decoration: underline;
 }
 
+.breadcrumb-menu {
+  display: inline-block;
+  position: relative;
+  margin-right: 16px;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+.breadcrumb-menu summary {
+  display: block;
+  padding: 0 4px;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.4em;
+  line-height: 1;
+}
+
+.breadcrumb-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.breadcrumb-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 5;
+  width: 210px;
+  padding: 10px 0;
+  border: 3px solid #20201e;
+  clip-path: var(--outline-shape);
+  background: #fff;
+  font-size: 16px;
+}
+
+.breadcrumb-dropdown a {
+  display: block;
+  padding: 8px 16px;
+}
+
+.breadcrumb-dropdown a[aria-current='page'] {
+  text-decoration: underline;
+}
+
 .page-content:focus {
   outline: none;
 }
