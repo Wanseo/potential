@@ -270,7 +270,7 @@ function playIntro() {
   animation?.cancel()
   const bounds = brand.getBoundingClientRect()
   const logoBounds = logoContainer.getBoundingClientRect()
-  const scale = Math.max(1, Math.min((window.innerWidth * 0.8) / logoBounds.width, 4.6))
+  const scale = Math.max(1, Math.min((window.innerWidth * 0.5) / logoBounds.width, 2.8))
   const x = (window.innerWidth - logoBounds.width * scale) / 2
     - bounds.left - (logoBounds.left - bounds.left) * scale
   const y = (window.innerHeight - logoBounds.height * scale) / 2
