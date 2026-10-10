@@ -50,7 +50,8 @@ app.innerHTML = `
   </header>
   <p class="home-quote">He said to me, “You are my potential”<br />
     So I started making all sorts of things.<br />
-    Maybe I take after my dad—I love making beautiful things.<br />
+    Maybe I take after my dad<br />
+    I love making beautiful things.<br />
     I hope the things I make bring you joy.</p>
   <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
