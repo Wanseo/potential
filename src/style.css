@@ -1,6 +1,6 @@
 :root {
   --main-nav-gap: 26px;
-  --site-logo-width: 293.25px;
+  --site-logo-width: 352px;
   --site-nav-font-size: 20.4px;
   --menu-font-size: clamp(16px, 2vw, 25px);
   --menu-gap: clamp(20px, 3vw, 40px);
