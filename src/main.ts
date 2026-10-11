@@ -363,7 +363,7 @@ logo.onerror = () => {
   brand.classList.add('is-ready')
   playIntro()
 }
-logo.src = `${import.meta.env.BASE_URL}potential-logo-03.png`
+logo.src = `${import.meta.env.BASE_URL}potential-logo-02.png`
 
 window.addEventListener('resize', () => {
   animation?.cancel()
