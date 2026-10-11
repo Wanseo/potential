@@ -47,11 +47,6 @@ app.innerHTML = `
     </div>
     </div>
   </header>
-  <p class="home-quote">He said to me, “You are my potential”<br />
-    So I started making all sorts of things.<br />
-    Maybe I take after my dad<br />
-    I love making beautiful things.<br />
-    I hope the things I make bring you joy.</p>
   <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
     <img class="home-image" src="${import.meta.env.BASE_URL}main-image-07.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" />
@@ -268,8 +263,14 @@ function showPage(moveFocus = false) {
   content.hidden = !title
   header.append(headerActions)
   home.hidden = Boolean(title)
-  document.querySelector<HTMLElement>('.home-quote')!.hidden = Boolean(title)
   renderProducts(title ? page : '')
+  if (page === 'about') {
+    content.innerHTML = `<p class="about-story">He said to me, “You are my potential”<br />
+      So I started making all sorts of things.<br />
+      Maybe I take after my dad<br />
+      I love making beautiful things.<br />
+      I hope the things I make bring you joy.</p>`
+  }
   if (product) renderProductDetail(content, product)
   if (title) content.setAttribute('aria-label', title)
   else content.removeAttribute('aria-label')

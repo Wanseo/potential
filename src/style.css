@@ -147,16 +147,14 @@ body {
 }
 
 .site-header.is-settled .site-nav,
-.site-header.is-settled ~ .home-quote,
 .site-header.is-settled ~ .home-content,
 .site-header.is-settled ~ .site-footer,
 .site-header.is-settled ~ .rotating-logo {
   visibility: visible;
 }
 
-.home-quote {
-  visibility: hidden;
-  margin: 64px 20px 0;
+.about-story {
+  margin: 32px 0;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
@@ -219,7 +217,8 @@ body {
   flex: 1;
   display: grid;
   place-items: center;
-  padding: 32px clamp(20px, 4vw, 48px);
+  align-content: start;
+  padding: 16px clamp(20px, 4vw, 48px) 32px;
   visibility: hidden;
 }
 
