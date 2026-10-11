@@ -1,6 +1,6 @@
 :root {
   --main-nav-gap: 26px;
-  --site-logo-width: 352px;
+  --site-logo-width: 293.25px;
   --site-nav-font-size: 20.4px;
   --menu-font-size: clamp(16px, 2vw, 25px);
   --menu-gap: clamp(20px, 3vw, 40px);
@@ -58,7 +58,7 @@ body {
   position: fixed;
   right: clamp(20px, 4vw, 48px);
   bottom: calc(64px + env(safe-area-inset-bottom, 0px));
-  width: clamp(104px, 12vw, 148px);
+  width: clamp(125px, 14.4vw, 178px);
   height: auto;
   z-index: 2;
   pointer-events: none;
