@@ -54,7 +54,7 @@ app.innerHTML = `
     I hope the things I make bring you joy.</p>
   <div class="page-breadcrumb" hidden></div>
   <main class="home-content" aria-label="POTENTIAL 홈">
-    <img class="home-image" src="${import.meta.env.BASE_URL}main-image-03.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" />
+    <img class="home-image" src="${import.meta.env.BASE_URL}main-image-04.png" alt="파란색과 보라색 POTENTIAL 패키지 상자" fetchpriority="high" />
   </main>
   <main class="page-content" tabindex="-1" hidden></main>
   <footer class="site-footer">
@@ -363,7 +363,7 @@ logo.onerror = () => {
   brand.classList.add('is-ready')
   playIntro()
 }
-logo.src = `${import.meta.env.BASE_URL}potential-logo-02.png`
+logo.src = `${import.meta.env.BASE_URL}potential-logo-03.png`
 
 window.addEventListener('resize', () => {
   animation?.cancel()
