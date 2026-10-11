@@ -218,7 +218,7 @@ body {
   display: grid;
   place-items: center;
   align-content: start;
-  padding: 48px clamp(20px, 4vw, 48px) 32px;
+  padding: 64px clamp(20px, 4vw, 48px) 32px;
   visibility: hidden;
 }
 
