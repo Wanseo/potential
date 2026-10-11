@@ -482,6 +482,7 @@ body {
 
 .product-card[data-product-id='sticker-02'] img {
   padding: calc(clamp(12px, 2vw, 32px) + 10%);
+  transform: scale(0.85);
 }
 
 .product-card {
@@ -634,8 +635,8 @@ body {
 }
 
 .product-detail[data-product-id='sticker-02'] .detail-gallery img {
-  width: 60%;
-  max-height: 39svh;
+  width: 51%;
+  max-height: 33.15svh;
 }
 
 .detail-info {
