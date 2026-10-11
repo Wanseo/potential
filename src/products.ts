@@ -21,7 +21,7 @@ export const products: Product[] = [
     id: 'sticker-01',
     name: 'POTENTIAL sticker',
     category: 'laptop-stickers',
-    image: 'products/sticker-01-logo-03.png',
+    image: 'products/sticker-01-grain.png',
     price: 6000,
     color: 'Mint / Blue / Pink',
   },
