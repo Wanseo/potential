@@ -61,7 +61,7 @@ app.innerHTML = `
     <span>© 2026 POTENTIAL. Site by <a href="https://www.instagram.com/wsjoy_/" target="_blank" rel="noopener noreferrer">@wsjoy_</a></span>
     <span class="site-location">Seoul, Korea</span>
   </footer>
-  <img class="rotating-logo" src="${import.meta.env.BASE_URL}potential-circle.png" alt="" aria-hidden="true" width="112" height="112" />
+  <img class="rotating-logo" src="${import.meta.env.BASE_URL}potential-circle-02.png" alt="" aria-hidden="true" width="112" height="112" />
 `
 
 const brand = document.querySelector<HTMLAnchorElement>('.brand')!
