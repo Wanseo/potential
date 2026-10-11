@@ -129,7 +129,6 @@ body {
 
 @media (max-width: 940px) {
   :root {
-    --site-logo-width: 127.5px;
     --site-nav-font-size: 16.575px;
   }
 }
