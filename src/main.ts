@@ -348,7 +348,7 @@ function playIntro() {
   }
 }
 
-// 원본 이미지를 public/potential-logo.png에 넣으면 자동으로 사용합니다.
+// 새 가로형 로고를 모든 화면의 브랜드 이미지에 사용합니다.
 logo.onload = async () => {
   // 박스도 미리 준비해 로고 도착 시 메뉴와 같은 프레임에 표시합니다.
   await homeImage.decode().catch(() => undefined)
@@ -363,7 +363,7 @@ logo.onerror = () => {
   brand.classList.add('is-ready')
   playIntro()
 }
-logo.src = `${import.meta.env.BASE_URL}potential-logo.png`
+logo.src = `${import.meta.env.BASE_URL}potential-logo-02.png`
 
 window.addEventListener('resize', () => {
   animation?.cancel()
