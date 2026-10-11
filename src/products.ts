@@ -29,7 +29,7 @@ export const products: Product[] = [
     id: 'sticker-02',
     name: 'POTENTIAL sticker (circular)',
     category: 'laptop-stickers',
-    image: 'products/sticker-02-grain.png',
+    image: 'products/sticker-02-logo-03.png',
     price: 6000,
     color: 'Mint / Blue / Pink',
   },
