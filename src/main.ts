@@ -53,7 +53,7 @@ app.innerHTML = `
   </main>
   <main class="page-content" tabindex="-1" hidden></main>
   <footer class="site-footer">
-    <span>© 2026 POTENTIAL. Site by <a href="https://www.instagram.com/wsjoy_/" target="_blank" rel="noopener noreferrer">@wsjoy_</a></span>
+    <span>© 2026 POTENTIAL.</span>
     <span class="site-location">Seoul, Korea</span>
   </footer>
   <img class="rotating-logo" src="${import.meta.env.BASE_URL}potential-circle-03-cutout.png" alt="" aria-hidden="true" width="112" height="112" />
