@@ -244,6 +244,12 @@ body {
     --main-nav-gap: 18px;
   }
 
+  .about-story {
+    width: 100%;
+    font-size: 14px;
+    transform: translateY(-48px);
+  }
+
   .site-nav {
     justify-content: center;
     gap: 12px;
