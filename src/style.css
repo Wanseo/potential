@@ -240,6 +240,10 @@ body {
 }
 
 @media (max-width: 640px) {
+  :root {
+    --main-nav-gap: 18px;
+  }
+
   .site-nav {
     justify-content: center;
     gap: 12px;
