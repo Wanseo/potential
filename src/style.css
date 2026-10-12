@@ -157,7 +157,7 @@ body {
   width: fit-content;
   max-width: 100%;
   margin: clamp(32px, calc(50svh - 272px), 208px) auto 32px;
-  transform: translate(8px, -80px);
+  transform: translateY(-64px);
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
